@@ -3,7 +3,7 @@
     "id": 1,
     "name": "The Realms in Exile",
     "date": "S.A. 3320",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Realms in Exile",
     "type": "major",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -16,7 +16,7 @@
     "id": 2,
     "name": "The Last Alliance",
     "date": "S.A. 3430",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Last Alliance",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -29,7 +29,7 @@
     "id": 3,
     "name": "Disaster of the Gladden Fields",
     "date": "T.A. 2",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "Disaster of the Gladden Fields",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -42,7 +42,7 @@
     "id": 4,
     "name": "Arnor Broken",
     "date": "T.A. 861",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "Arnor Broken",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -55,7 +55,7 @@
     "id": 5,
     "name": "The Rise of Angmar",
     "date": "T.A. 1349",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Rise of Angmar",
     "type": "major",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -68,7 +68,7 @@
     "id": 6,
     "name": "The Fall of Amon Sûl",
     "date": "T.A. 1409",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Fall of Amon Sûl",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -81,7 +81,7 @@
     "id": 7,
     "name": "The Kin-Strife",
     "date": "T.A. 1432",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Kin-Strife",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -94,7 +94,7 @@
     "id": 8,
     "name": "The Great Plague",
     "date": "T.A. 1634",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Great Plague",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -107,7 +107,7 @@
     "id": 9,
     "name": "The Disaster of the Morannon",
     "date": "T.A. 1944",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Disaster of the Morannon",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -120,7 +120,7 @@
     "id": 10,
     "name": "The Ride of Eorl",
     "date": "T.A. 2510",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Ride of Eorl",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -133,20 +133,20 @@
     "id": 11,
     "name": "The Long Winter",
     "date": "T.A. 2754",
-    "tooltip": "Implemented",
+    "tooltip": "The Long Winter",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "War of the Rohirrim",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+        "An hour of devastation looms. In the north, Helm Hammerhand, Lord of the Riddermark, summons a council that may drastically change the face of Rohan, and may lead to his ultimate doom. Yet now the Rohirrim cannot look to their staunchest allies for aid.",
+        "In the south, legions of Haradrim and corsair fleets muster with newfound vigour, seeking to plunder the rich underbelly of the Southern Kingdom, and Beren of Gondor must ready his realm for the threat. Unbeknownst to them all, the Long Winter approaches; and to the people of the North it shall bring nothing but misery and suffering.",
+        "Can Gondor and Rohan withstand the onslaught, or has the fortune of the Free Peoples turned against them?"
     ]
   },
   {
     "id": 12,
     "name": "The War of the Dwarves and Orcs",
     "date": "T.A. 2793",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The War of the Dwarves and Orcs",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
@@ -159,33 +159,36 @@
     "id": 13,
     "name": "The Quest for Erebor",
     "date": "T.A. 2941",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Quest for Erebor",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "An hour of devastation looms. In the north, Helm Hammerhand, Lord of the Riddermark, summons a council that may drastically change the face of Rohan, and may lead to his ultimate doom. Yet now the Rohirrim cannot look to their staunchest allies for aid.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+        "In the south, legions of Haradrim and corsair fleets muster with newfound vigour, seeking to plunder the rich underbelly of the Southern Kingdom, and Beren of Gondor must ready his realm for the threat. Unbeknownst to them all, the Long Winter approaches; and to the people of the North it shall bring nothing but misery and suffering.",
+        "Can Gondor and Rohan withstand the onslaught, or has the fortune of the Free Peoples turned against them?"
     ]
   },
   {
     "id": 14,
     "name": "The War of the Ring",
     "date": "T.A. 3000",
-    "tooltip": "Implemented",
+    "tooltip": "The War of the Ring",
     "type": "major",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "The Great Battle",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+        "Sauron prepares to crush the last great bulwark of the West, the Kingdom of Gondor. His armies are marshalled, his full strength almost gathered. He needs only the One Ring now to make his victory absolute and assure the fall of Gondor.",
+        "In Gondor, the Steward Denethor secludes himself in the White Tower, preparing his realm for the Great Battle to come. His sons wage war in Osgiliath and Ithilien to turn back the tide, and the men of Gondor fight on, defiant to the last.",
+        "To the south, Gondor's old foes in Haradwaith and Umbar are recovering from previous defeats. Nursing a grudge, they look on Gondor's strength, stretched thin, and see an opportunity to finally even the score.",
+        "Against the threats arrayed against them, can the last kingdom of the Dúnedain hold?",
+        "Upon the windswept green plains of ancient Calenardhon, another vital phase of the great battle is set to begin.",
+        "In Isengard, Saruman the White contemplates a momentous decision which shall bind his name in glory or infamy. Shall he lead Middle-earth into a new order, or will he become a footnote in the great story of this age?",
+        "In golden Meduseld, Théoden King, lord of the Riddermark, sits upon the throne of his forefathers, and he seems to the world whole and hale. But a shadow is upon the king, awaiting its hour, and the borders of his kingdom are pressed by foes unexpected. Shall the Rohirrim rise to meet the great challenge of the age, and blow their horns in defiance at the coming darkness?"
     ]
   },
   {
     "id": 15,
     "name": "The Fourth Age",
     "date": "Fo.A. 120",
-    "tooltip": "NOT IMPLEMENTED",
+    "tooltip": "The Fourth Age",
     "type": "minor",
     "description": "Lorem ipsum dolor sit amet.",
     "extra": [
