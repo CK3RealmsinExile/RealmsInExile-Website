@@ -9,6 +9,7 @@ function App() {
   const [startDate, setStartDate] = useState(startDatesData[0].date);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [hoveredCharId, setHoveredCharId] = useState(null);
 
   const selectedStart = startDatesData.find((s) => s.name === startName);
 
@@ -53,8 +54,14 @@ function App() {
                 setSelectedCharacter(char);
                 setSidebarOpen(true);
               }}
+              onMouseEnter={() => setHoveredCharId(char.id)}
+              onMouseLeave={() => setHoveredCharId(null)}
             >
-              <div className="char-tooltip">{char.name}</div>
+              <div
+                className={`char-tooltip ${hoveredCharId && hoveredCharId !== char.id ? 'faded' : ''}`}
+              >
+                {char.name}
+              </div>
             </div>
           ))}
       </div>
