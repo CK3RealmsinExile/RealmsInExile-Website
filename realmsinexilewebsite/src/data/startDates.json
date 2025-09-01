@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "name": "The Realms in Exile",
+    "date": "S.A. 3320",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "major",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 2,
+    "name": "The Last Alliance",
+    "date": "S.A. 3430",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Disaster of the Gladden Fields",
+    "date": "T.A. 2",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Arnor Broken",
+    "date": "T.A. 861",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 5,
+    "name": "The Rise of Angmar",
+    "date": "T.A. 1349",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "major",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 6,
+    "name": "The Fall of Amon Sûl",
+    "date": "T.A. 1409",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 7,
+    "name": "The Kin-Strife",
+    "date": "T.A. 1432",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 8,
+    "name": "The Great Plague",
+    "date": "T.A. 1634",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 9,
+    "name": "The Disaster of the Morannon",
+    "date": "T.A. 1944",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 10,
+    "name": "The Ride of Eorl",
+    "date": "T.A. 2510",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 11,
+    "name": "The Long Winter",
+    "date": "T.A. 2754",
+    "tooltip": "Implemented",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 12,
+    "name": "The War of the Dwarves and Orcs",
+    "date": "T.A. 2793",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 13,
+    "name": "The Quest for Erebor",
+    "date": "T.A. 2941",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 14,
+    "name": "The War of the Ring",
+    "date": "T.A. 3000",
+    "tooltip": "Implemented",
+    "type": "major",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  },
+  {
+    "id": 15,
+    "name": "The Fourth Age",
+    "date": "Fo.A. 120",
+    "tooltip": "NOT IMPLEMENTED",
+    "type": "minor",
+    "description": "Lorem ipsum dolor sit amet.",
+    "extra": [
+        "Paragraph 1 about Lorem ipsum dolor sit amet.",
+        "Paragraph 2 with more lore details.",
+        "Paragraph 3 with additional context."
+    ]
+  }
+]

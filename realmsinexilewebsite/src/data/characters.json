@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "Elrond",
+    "image": "elrond.png",
+    "description": [
+      "Elrond is the Lord of Rivendell, wise and powerful.",
+      "He plays a key role in advising the Free Peoples of Middle-earth."
+    ],
+    "culture": "Elven",
+    "faith": "Valar Worship",
+    "position": { "x": 0.445, "y": 0.27 },
+    "startDates": ["S.A. 3320", "S.A. 3430", "T.A. 2", "T.A. 861", "T.A. 1349", "T.A. 1409", "T.A. 1432", "T.A. 1634", "T.A. 1944", "T.A. 2510", "T.A. 2754", "T.A. 2793", "T.A. 2941", "T.A. 3000", "Fo.A. 120"]
+  },
+  {
+    "id": 2,
+    "name": "Aragorn",
+    "image": "aragorn.png",
+    "description": [
+      "Heir of Isildur and future King of Gondor.",
+      "Traveled widely and played a key role in the War of the Ring."
+    ],
+    "culture": "Dúnedain",
+    "faith": "Valar Worship",
+    "position": { "x": 0.428, "y": 0.280 },
+    "startDates": ["T.A. 2941", "T.A. 3000"]
+  }
+]
