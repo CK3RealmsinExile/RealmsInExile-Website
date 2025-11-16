@@ -483,5 +483,18 @@
     "faith": "Valar Worship",
     "position": { "x": 0.612, "y": 0.57 },
     "startDates": ["T.A. 3000"]
+  },
+  {
+    "id": 38,
+    "name": "Cirdan the Shipwright",
+    "image": "cirdan-the-shipwright.png",
+    "description": [
+      "Círdan continues on as he has for much of the [thirdage|E] - watching over the slowly dwindling [falathrim|E] of [lindon|E], building ships for those who desire to depart for [valinor|E]. Though far-removed from the foes which now threaten [middleearth|E], Lindon remains, even now much dwindled, a realm of slumbering power. But for now, Círdan shall watch, and wait, giving his guidance and aid where it might be of greatest help.",
+      "Whatever storms the world shall bring, Círdan shall guide Lindon as its lord and steward, until the day comes when his task is fulfilled, and the last [elven|E] ship sets sail..."
+    ],
+    "culture": "Falathrim",
+    "faith": "Valar Worship",
+    "position": { "x": 0.336, "y": 0.265 },
+    "startDates": ["S.A. 3320", "S.A. 3430", "T.A. 2", "T.A. 861", "T.A. 1349", "T.A. 1409", "T.A. 1432", "T.A. 1634", "T.A. 1944", "T.A. 2510", "T.A. 2754", "T.A. 2793", "T.A. 2941", "T.A. 3000", "Fo.A. 120"]
   }
 ]

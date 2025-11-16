@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import realmsMap from '../assets/map.webp';
 import startDatesData from '../data/startDates.json';
-import charactersData from '../data/characters.json'; // make sure to import this
+import charactersDataImported from '../data/characters.json';
 import '../styles/App.css';
 
 function App() {
@@ -11,21 +11,93 @@ function App() {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [hoveredCharId, setHoveredCharId] = useState(null);
 
-  const selectedStart = startDatesData.find((s) => s.name === startName);
+  const [charactersData, setCharactersData] = useState(() =>
+    charactersDataImported.map(char => ({
+      ...char,
+      positions: { ...char.position } // default positions
+    }))
+  );
+
+  const [draggingCharId, setDraggingCharId] = useState(null);
+  const mapRef = useRef(null);
+
+  const selectedStart = startDatesData.find(s => s.name === startName);
+
+  const handleMouseMove = (e) => {
+    if (!draggingCharId || !mapRef.current) return;
+
+    const mapRect = mapRef.current.getBoundingClientRect();
+    let newX = (e.clientX - mapRect.left) / mapRect.width;
+    let newY = (e.clientY - mapRect.top) / mapRect.height;
+
+    newX = Math.max(0, Math.min(1, newX));
+    newY = Math.max(0, Math.min(1, newY));
+
+    setCharactersData(prev =>
+      prev.map(char => {
+        if (char.id === draggingCharId) {
+          return {
+            ...char,
+            positions: {
+              ...char.positions,
+              [startDate]: { x: newX, y: newY }
+            }
+          };
+        }
+        return char;
+      })
+    );
+  };
+
+  const handleMouseUp = () => setDraggingCharId(null);
+
+  useEffect(() => {
+    if (draggingCharId) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+    } else {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [draggingCharId]);
+
+  // Export JSON function
+  const exportPositions = () => {
+    const exportData = charactersData.map(char => ({
+      id: char.id,
+      name: char.name,
+      positions: char.positions
+    }));
+
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'characters_positions.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <>
-      {/* Timeline navigation bar */}
+      {/* Timeline navigation */}
       <nav className="timeline-nav">
         {startDatesData.map((start) => (
           <div className="timeline-item" key={start.id}>
             <div
               className={`circle ${start.name === startName ? 'active' : ''}`}
               onClick={() => {
-                setStartDate(start.date)
+                setStartDate(start.date);
                 setStartName(start.name);
                 setSidebarOpen(true);
-                setSelectedCharacter(null); // reset character selection
+                setSelectedCharacter(null);
               }}
             >
               <div className="tooltip">{start.tooltip}</div>
@@ -36,60 +108,67 @@ function App() {
       </nav>
 
       {/* Map container */}
-      <div className="map-container">
+      <div className="map-container" ref={mapRef}>
         <img src={realmsMap} alt="Realms Map" />
 
-        {/* Character pins ON TOP of map */}
         {charactersData
-          .filter((char) => char.startDates.includes(startDate))
-          .map((char) => (
-            <div
-              key={char.id}
-              className="char-pin"
-              style={{
-                left: `${char.position.x * 100}%`,
-                top: `${char.position.y * 100}%`,
-              }}
-              onClick={() => {
-                setSelectedCharacter(char);
-                setSidebarOpen(true);
-              }}
-              onMouseEnter={() => setHoveredCharId(char.id)}
-              onMouseLeave={() => setHoveredCharId(null)}
-            >
+          .filter(char => char.startDates.includes(startDate))
+          .map(char => {
+            const pos = char.positions[startDate] || char.position;
+            return (
               <div
-                className={`char-tooltip ${hoveredCharId && hoveredCharId !== char.id ? 'faded' : ''}`}
+                key={char.id}
+                className="char-pin"
+                style={{
+                  left: `${pos.x * 100}%`,
+                  top: `${pos.y * 100}%`,
+                  cursor: draggingCharId === char.id ? 'grabbing' : 'grab'
+                }}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  setDraggingCharId(char.id);
+                }}
+                onClick={() => {
+                  setSelectedCharacter(char);
+                  setSidebarOpen(true);
+                }}
+                onMouseEnter={() => setHoveredCharId(char.id)}
+                onMouseLeave={() => setHoveredCharId(null)}
               >
-                {char.name}
+                <div
+                  className={`char-tooltip ${hoveredCharId && hoveredCharId !== char.id ? 'faded' : ''}`}
+                >
+                  {char.name}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
       </div>
 
       {/* Sidebar */}
       <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
-        <button className="close-btn" onClick={() => setSidebarOpen(false)}>
-          ✕
-        </button>
+        <button className="close-btn" onClick={() => setSidebarOpen(false)}>✕</button>
 
         {selectedCharacter ? (
           <>
             <h2>{selectedCharacter.name}</h2>
-            {selectedCharacter.description.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+            {selectedCharacter.description.map((para, i) => <p key={i}>{para}</p>)}
           </>
         ) : (
           <>
             <h2>{selectedStart.name}</h2>
             <p>{selectedStart.description}</p>
-            {selectedStart.extra &&
-              selectedStart.extra.map((para, i) => <p key={i}>{para}</p>)}
+            {selectedStart.extra && selectedStart.extra.map((para, i) => <p key={i}>{para}</p>)}
           </>
         )}
+
+        {/* Export positions button */}
+        <button onClick={exportPositions} className="export-btn">
+          Export Positions JSON
+        </button>
       </div>
 
-      {/* Sidebar toggle button (when closed) */}
+      {/* Sidebar toggle */}
       <button
         className={`sidebar-toggle ${sidebarOpen ? 'hidden' : ''}`}
         onClick={() => setSidebarOpen(true)}
