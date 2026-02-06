@@ -15,7 +15,11 @@ export function useCharacterDrag(mapRef, onPositionChange) {
     (e) => {
       if (!draggingCharId || !mapRef) return
 
-      const coords = normalizeCoordinates(e, mapRef.getBoundingClientRect())
+      // FIX: Use getBoundingClientRect() fresh on each move
+      // to account for any scrolling that may have occurred
+      const rect = mapRef.getBoundingClientRect()
+      const coords = normalizeCoordinates(e, rect)
+      
       onPositionChange(draggingCharId, coords)
     },
     [draggingCharId, mapRef, onPositionChange]
@@ -29,11 +33,18 @@ export function useCharacterDrag(mapRef, onPositionChange) {
     if (draggingCharId) {
       window.addEventListener('mousemove', handleMouseMove)
       window.addEventListener('mouseup', handleMouseUp)
+      
+      // FIX: Prevent scroll during drag
+      document.body.style.overflow = 'hidden'
+    } else {
+      // Restore scrolling when drag ends
+      document.body.style.overflow = ''
     }
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseup', handleMouseUp)
+      document.body.style.overflow = ''
     }
   }, [draggingCharId, handleMouseMove, handleMouseUp])
 

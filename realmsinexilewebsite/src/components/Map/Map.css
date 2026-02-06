@@ -7,28 +7,30 @@
 .map-container {
   /* Layout */
   width: 100%;
-  height: 100vh;
-  
-  /* Positioning context for absolute pins */
-  position: relative;
+  min-height: 100vh;
   
   /* Scrolling */
   overflow: auto;
   
   /* Account for fixed timeline navigation */
   padding-top: var(--timeline-height, 89px);
+  
+  /* Background */
+  background-color: var(--color-black, #000);
+}
+
+/* Map wrapper - provides positioning context */
+.map-wrapper {
+  position: relative;
+  display: inline-block;
+  min-width: 100%;
 }
 
 /* Map image */
 .map-container img {
-  /* Display */
   display: block;
-  
-  /* Sizing - preserve aspect ratio */
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  
-  /* Prevent dragging the image itself */
   user-select: none;
   pointer-events: none;
 }

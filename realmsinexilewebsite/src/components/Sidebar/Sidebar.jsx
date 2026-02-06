@@ -1,20 +1,10 @@
 import { useAppContext } from '@context/AppContext'
-import { exportCharacterPositions } from '@utils/exportHelpers'
+import { exportCharacterData } from '@utils/exportHelpers'
 import { Button } from '@components/shared'
 import CharacterDetails from './CharacterDetails'
 import TimelineDetails from './TimelineDetails'
 import './Sidebar.css'
 
-/**
- * Sidebar component
- * Displays contextual information (character or timeline details)
- * Manages sidebar open/close state and export functionality
- * 
- * @component
- * 
- * @example
- * <Sidebar />
- */
 function Sidebar() {
   const {
     sidebarOpen,
@@ -26,47 +16,35 @@ function Sidebar() {
     characters,
   } = useAppContext()
 
-  /**
-   * Closes the sidebar
-   * Accessible via close button or toggle
-   */
   const handleClose = () => {
     setSidebarOpen(false)
   }
 
-  /**
-   * Opens the sidebar
-   * Used by external toggle button
-   */
   const handleOpen = () => {
     setSidebarOpen(true)
   }
 
   /**
-   * Handles character position export
-   * Exports current character positions to JSON file
+   * Handles complete character data export
+   * Exports full characters.json format with updated positions
    */
   const handleExport = () => {
     try {
-      exportCharacterPositions(characters)
+      exportCharacterData(characters, 'characters.json')
     } catch (error) {
-      // Error is already logged in exportHelpers
-      alert('Failed to export positions. Please try again.')
+      alert('Failed to export data. Please try again.')
     }
   }
 
-  // Get current timeline data
   const currentTimeline = startDatesData.find((s) => s.name === startName)
 
   return (
     <>
-      {/* Sidebar panel */}
       <aside
         className={`sidebar ${sidebarOpen ? 'sidebar--open' : ''}`}
         aria-hidden={!sidebarOpen}
         aria-label="Details panel"
       >
-        {/* Close button */}
         <Button
           variant="ghost"
           className="sidebar__close-btn"
@@ -76,7 +54,6 @@ function Sidebar() {
           ✕
         </Button>
 
-        {/* Sidebar content - switches between character and timeline */}
         <div className="sidebar__content">
           {selectedCharacter ? (
             <CharacterDetails character={selectedCharacter} />
@@ -85,28 +62,25 @@ function Sidebar() {
           )}
         </div>
 
-        {/* Sidebar footer with actions */}
         <footer className="sidebar__footer">
           <Button
             variant="secondary"
             size="small"
             onClick={handleExport}
-            ariaLabel="Export character positions as JSON"
+            ariaLabel="Export complete character data as JSON"
           >
-            Export Positions
+            Export Characters  {/* ← Changed button text */}
           </Button>
         </footer>
       </aside>
 
-      {/* Toggle button - visible when sidebar is closed */}
-      <Button
-        variant="primary"
+      <button
         className={`sidebar-toggle ${sidebarOpen ? 'sidebar-toggle--hidden' : ''}`}
         onClick={handleOpen}
-        ariaLabel="Open sidebar"
+        aria-label="Open sidebar"
       >
         &lt;
-      </Button>
+      </button>
     </>
   )
 }

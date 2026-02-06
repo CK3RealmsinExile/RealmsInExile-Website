@@ -1,6 +1,6 @@
 /**
  * Data export utilities
- * Handles exporting character positions to downloadable JSON files
+ * Handles exporting character data with updated positions
  * 
  * @module exportHelpers
  */
@@ -9,23 +9,23 @@ import { EXPORT } from './constants'
 import { roundCoordinates } from './coordinateHelpers'
 
 /**
- * Exports character position data to JSON file
- * Creates downloadable blob and triggers browser download
+ * Exports complete character data to JSON file
+ * Maintains full character structure with updated positions
  * 
  * @param {Array<Object>} charactersData - Array of character objects with positions
  * @param {string} [filename] - Custom filename (optional)
  * @throws {Error} If charactersData is invalid
  * 
  * @example
- * exportCharacterPositions(characters, 'my_positions.json')
+ * exportCharacterData(characters, 'characters.json')
  */
-export function exportCharacterPositions(charactersData, filename = EXPORT.FILENAME) {
+export function exportCharacterData(charactersData, filename = 'characters.json') {
   if (!Array.isArray(charactersData) || charactersData.length === 0) {
     throw new Error('Invalid character data provided for export')
   }
 
   try {
-    // Transform data: extract only necessary fields and round coordinates
+    // Export COMPLETE character data with rounded positions
     const exportData = charactersData.map((char) => {
       const roundedPositions = {}
       
@@ -34,9 +34,18 @@ export function exportCharacterPositions(charactersData, filename = EXPORT.FILEN
         roundedPositions[date] = roundCoordinates(coords)
       })
 
+      // Round the default position too
+      const roundedDefaultPosition = roundCoordinates(char.position)
+
+      // Return complete character object
       return {
         id: char.id,
         name: char.name,
+        description: char.description,
+        ...(char.image && { image: char.image }),
+        ...(char.metadata && { metadata: char.metadata }),
+        startDates: char.startDates,
+        position: roundedDefaultPosition,
         positions: roundedPositions,
       }
     })
@@ -53,7 +62,50 @@ export function exportCharacterPositions(charactersData, filename = EXPORT.FILEN
     document.body.appendChild(link)
     link.click()
 
-    // Cleanup: remove link and revoke object URL to free memory
+    // Cleanup
+    document.body.removeChild(link)
+    URL.revokeObjectURL(url)
+  } catch (error) {
+    console.error('Failed to export character data:', error)
+    throw new Error('Export failed. Please try again.')
+  }
+}
+
+/**
+ * Legacy function for backward compatibility
+ * Exports only positions (minimal format)
+ */
+export function exportCharacterPositions(charactersData, filename = EXPORT.FILENAME) {
+  if (!Array.isArray(charactersData) || charactersData.length === 0) {
+    throw new Error('Invalid character data provided for export')
+  }
+
+  try {
+    // Transform data: extract only necessary fields and round coordinates
+    const exportData = charactersData.map((char) => {
+      const roundedPositions = {}
+      
+      Object.entries(char.positions).forEach(([date, coords]) => {
+        roundedPositions[date] = roundCoordinates(coords)
+      })
+
+      return {
+        id: char.id,
+        name: char.name,
+        positions: roundedPositions,
+      }
+    })
+
+    const jsonString = JSON.stringify(exportData, null, EXPORT.INDENT)
+    const blob = new Blob([jsonString], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+
+    const link = document.createElement('a')
+    link.href = url
+    link.download = filename
+    document.body.appendChild(link)
+    link.click()
+
     document.body.removeChild(link)
     URL.revokeObjectURL(url)
   } catch (error) {
@@ -63,16 +115,7 @@ export function exportCharacterPositions(charactersData, filename = EXPORT.FILEN
 }
 
 /**
- * Validates character position data structure
- * Ensures data meets expected schema before export
- * 
- * @param {Array<Object>} data - Character data to validate
- * @returns {boolean} True if valid
- * 
- * @example
- * if (validateCharacterData(chars)) {
- *   exportCharacterPositions(chars)
- * }
+ * Validates character data structure
  */
 export function validateCharacterData(data) {
   if (!Array.isArray(data)) return false
@@ -87,17 +130,9 @@ export function validateCharacterData(data) {
 }
 
 /**
- * Imports character positions from JSON file
- * 
- * @param {File} file - JSON file from file input
- * @returns {Promise<Array<Object>>} Parsed character data
- * @throws {Error} If file is invalid or parsing fails
- * 
- * @example
- * const fileInput = document.querySelector('input[type="file"]')
- * const data = await importCharacterPositions(fileInput.files[0])
+ * Imports character data from JSON file
  */
-export async function importCharacterPositions(file) {
+export async function importCharacterData(file) {
   if (!file || file.type !== 'application/json') {
     throw new Error('Please select a valid JSON file')
   }
@@ -112,7 +147,7 @@ export async function importCharacterPositions(file) {
 
     return data
   } catch (error) {
-    console.error('Failed to import character positions:', error)
+    console.error('Failed to import character data:', error)
     throw new Error('Import failed. Please check your file format.')
   }
 }

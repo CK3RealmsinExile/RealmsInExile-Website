@@ -78,7 +78,7 @@ src/
 Contains timeline period information:
 - `id`: Unique identifier
 - `name`: Period name
-- `date`: Display date (e.g., "T.A. 3018")
+- `date`: Display date (e.g., "T.A. 3000")
 - `type`: "major" or "minor"
 - `description`: Main description
 - `extra`: Additional paragraphs (optional)

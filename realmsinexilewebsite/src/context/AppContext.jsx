@@ -19,7 +19,11 @@ export function AppProvider({ children }) {
   const [startDate, setStartDate] = useState(startDatesData[0].date)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [selectedCharacter, setSelectedCharacter] = useState(null)
-  const [characters, setCharacters] = useState(charactersData)
+  
+  // FIX: Initialize with deep copy to preserve all positions
+  const [characters, setCharacters] = useState(() => 
+    JSON.parse(JSON.stringify(charactersData))
+  )
 
   // Memoize context value to prevent unnecessary re-renders
   const value = useMemo(

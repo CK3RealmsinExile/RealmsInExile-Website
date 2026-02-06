@@ -28,5 +28,5 @@ export default defineConfig({
       }
     }
   },
-  base: '/RealmsInExile-Website/'
+  base: './'
 })
