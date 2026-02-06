@@ -1,68 +1,464 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/**
+ * Global Base Styles
+ * Application-wide styles and utility classes
+ * 
+ * Import order:
+ * 1. variables.css (design tokens)
+ * 2. reset.css (browser normalization)
+ * 3. index.css (this file - global styles)
+ * 4. Component-specific styles
+ */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+/**
+ * Root application container
+ */
+#root {
+  /* Full viewport height */
   min-height: 100vh;
+  
+  /* Flexbox for sticky footer if needed */
+  display: flex;
+  flex-direction: column;
+  
+  /* Isolation for z-index stacking contexts */
+  isolation: isolate;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/**
+ * App container (main layout wrapper)
+ */
+.app {
+  /* Layout */
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  
+  /* Account for fixed timeline navigation */
+  padding-top: var(--timeline-height, 89px);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/**
+ * Typography Utilities
+ */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+/**
+ * Spacing Utilities
+ * Using design token spacing scale
+ */
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.p-xs { padding: var(--spacing-xs); }
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.p-xl { padding: var(--spacing-xl); }
+
+/**
+ * Display Utilities
+ */
+.hidden {
+  display: none !important;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.grid {
+  display: grid;
+}
+
+/**
+ * Flexbox Utilities
+ */
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/**
+ * Position Utilities
+ */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+/**
+ * Overflow Utilities
+ */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+/**
+ * Cursor Utilities
+ */
+.cursor-pointer {
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.cursor-default {
+  cursor: default;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+/**
+ * User Select Utilities
+ */
+.select-none {
+  user-select: none;
+}
+
+.select-text {
+  user-select: text;
+}
+
+/**
+ * Visibility Utilities
+ */
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/**
+ * Opacity Utilities
+ */
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: 0.25; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+/**
+ * Border Radius Utilities
+ */
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/**
+ * Shadow Utilities
+ */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/**
+ * Color Utilities
+ */
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+.text-danger {
+  color: var(--color-danger);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+.bg-grey {
+  background-color: var(--color-grey-bg);
+}
+
+/**
+ * Loading State
+ * For future implementation of loading indicators
+ */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: wait;
+}
+
+/**
+ * Disabled State
+ */
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/**
+ * Focus Visible Styles
+ * Consistent focus indicators across the app
+ */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/**
+ * Selection Styles
+ * Customize text selection color
+ */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+/**
+ * Scrollbar Styles
+ * Custom scrollbar for webkit browsers
+ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/**
+ * Responsive Utilities
+ */
+
+/* Mobile only */
+@media (max-width: 599px) {
+  .hidden-mobile {
+    display: none !important;
   }
-  a:hover {
-    color: #747bff;
+}
+
+/* Tablet and up */
+@media (min-width: 600px) {
+  .visible-mobile-only {
+    display: none !important;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .hidden-desktop {
+    display: none !important;
   }
+}
+
+/**
+ * Print Styles
+ */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Ensure proper page breaks */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  /* Avoid breaking inside elements */
+  p, blockquote {
+    page-break-inside: avoid;
+  }
+}
+
+/**
+ * Animations
+ * Reusable keyframe animations
+ */
+
+/* Fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from bottom */
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Pulse */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Spin (for loading indicators) */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in {
+  animation: fadeIn var(--animation-base) ease-in;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--animation-sidebar) ease-out;
+}
+
+.animate-slide-in-bottom {
+  animation: slideInBottom var(--animation-sidebar) ease-out;
+}
+
+.animate-pulse {
+  animation: pulse var(--animation-slow) ease-in-out infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }

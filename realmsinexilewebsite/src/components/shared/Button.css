@@ -1,0 +1,97 @@
+ /**
+ * Button component styles
+ * Provides variants for different contexts and states
+ */
+
+.btn {
+  /* Reset */
+  display: inline-block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  
+  /* Base styles */
+  border-radius: var(--btn-radius, 8px);
+  font-weight: 500;
+  transition: all var(--btn-transition, 0.2s) ease;
+  
+  /* Prevent text selection on double-click */
+  user-select: none;
+}
+
+/* Size variants */
+.btn--small {
+  padding: var(--btn-padding-small, 0.4em 0.8em);
+  font-size: var(--btn-font-small, 0.875rem);
+}
+
+.btn--medium {
+  padding: var(--btn-padding-medium, 0.6em 1.2em);
+  font-size: var(--btn-font-medium, 1rem);
+}
+
+.btn--large {
+  padding: var(--btn-padding-large, 0.8em 1.6em);
+  font-size: var(--btn-font-large, 1.125rem);
+}
+
+/* Style variants */
+.btn--primary {
+  background-color: var(--color-gold, #b8860b);
+  color: var(--color-white, #fff);
+  border: 2px solid transparent;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background-color: var(--color-gold-dark, #a57c08);
+  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.3);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-gold, #b8860b);
+  border: 2px solid var(--color-gold, #b8860b);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background-color: var(--color-gold, #b8860b);
+  color: var(--color-white, #fff);
+}
+
+.btn--danger {
+  background-color: var(--color-danger, #d32f2f);
+  color: var(--color-white, #fff);
+  border: 2px solid transparent;
+}
+
+.btn--danger:hover:not(:disabled) {
+  background-color: var(--color-danger-dark, #b71c1c);
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text, inherit);
+  border: 2px solid transparent;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* State variants */
+.btn--disabled,
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-gold, #b8860b);
+  outline-offset: 2px;
+}

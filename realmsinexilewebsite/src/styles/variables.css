@@ -1,0 +1,182 @@
+/**
+ * CSS Custom Properties (Design Tokens)
+ * Centralized theme variables for consistent styling
+ * 
+ * Usage: var(--variable-name, fallback-value)
+ * Example: color: var(--color-gold, #b8860b);
+ */
+
+:root {
+  /**
+   * Color Palette
+   */
+  --color-gold: #b8860b;
+  --color-gold-dark: #a57c08;
+  --color-gold-rgb: 184, 134, 11; /* For rgba() usage */
+  
+  --color-grey-bg: grey;
+  --color-white: #fff;
+  --color-black: #000;
+  
+  --color-danger: #d32f2f;
+  --color-danger-dark: #b71c1c;
+  
+  --color-text: rgba(255, 255, 255, 0.87);
+  --color-text-secondary: rgba(255, 255, 255, 0.6);
+  
+  /**
+   * Z-Index Layers
+   * Organized from lowest to highest
+   */
+  --z-map-base: 1000;
+  --z-character-pin: 1100;
+  --z-character-tooltip: 1150;
+  --z-sidebar-toggle: 1500;
+  --z-sidebar: 2000;
+  --z-sidebar-close: 2100;
+  --z-timeline-nav: 3000;
+  --z-tooltip: 9999;
+  
+  /**
+   * Spacing Scale
+   * Based on 8px grid system
+   */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  
+  /**
+   * Typography
+   */
+  --font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-mono: 'Courier New', monospace;
+  
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /**
+   * Border Radius
+   */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  
+  /**
+   * Shadows
+   */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  
+  /**
+   * Animation Durations
+   */
+  --animation-fast: 150ms;
+  --animation-base: 200ms;
+  --animation-sidebar: 300ms;
+  --animation-slow: 500ms;
+  
+  /**
+   * Breakpoints (for reference in JS)
+   * Use in media queries as pixel values
+   */
+  --breakpoint-mobile: 600px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1440px;
+  
+  /**
+   * Component-Specific Variables
+   */
+  
+  /* Timeline */
+  --timeline-height: 89px;
+  --timeline-border-width: 4px;
+  --timeline-circle-size: 24px;
+  --timeline-circle-border: 2px;
+  --timeline-line-height: 4px;
+  
+  /* Sidebar */
+  --sidebar-width: 350px;
+  --sidebar-padding: 20px;
+  --sidebar-hidden-offset: -390px;
+  
+  /* Character Pins */
+  --pin-size: 1px;
+  --pin-border-width: 4px;
+  --pin-hover-scale: 1.5;
+  --pin-glow-radius: 40px;
+  --pin-transition: 200ms;
+  
+  /* Tooltips */
+  --tooltip-bg: #333;
+  --tooltip-color: #fff;
+  --tooltip-padding: 4px 8px;
+  --tooltip-offset: 6px;
+  --tooltip-font-size: 0.75rem;
+  --tooltip-radius: 4px;
+  --tooltip-transition: 0.2s;
+  
+  /* Buttons */
+  --btn-padding-small: 0.4em 0.8em;
+  --btn-padding-medium: 0.6em 1.2em;
+  --btn-padding-large: 0.8em 1.6em;
+  --btn-font-small: 0.875rem;
+  --btn-font-medium: 1rem;
+  --btn-font-large: 1.125rem;
+  --btn-radius: 8px;
+  --btn-transition: 0.2s;
+}
+
+/**
+ * Dark Theme Override
+ * Automatically applies based on user's system preference
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: rgba(255, 255, 255, 0.87);
+    --color-text-secondary: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/**
+ * Light Theme Override
+ * Note: Currently app is designed for dark theme
+ * Light theme variables can be added here if needed
+ */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Light theme overrides would go here */
+    /* Currently not implemented - app uses dark theme */
+  }
+}
+
+/**
+ * Reduced Motion
+ * Respects user's accessibility preference for reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --animation-fast: 0ms;
+    --animation-base: 0ms;
+    --animation-sidebar: 0ms;
+    --animation-slow: 0ms;
+    --pin-transition: 0ms;
+    --btn-transition: 0ms;
+    --tooltip-transition: 0ms;
+  }
+}

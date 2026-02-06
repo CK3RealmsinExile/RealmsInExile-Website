@@ -1,0 +1,80 @@
+/**
+ * Tooltip component styles
+ * Provides positioning and animation for tooltips
+ */
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  /* Positioning */
+  position: absolute;
+  z-index: var(--z-tooltip, 9999);
+  
+  /* Spacing */
+  padding: var(--tooltip-padding, 4px 8px);
+  margin-top: var(--tooltip-offset, 6px);
+  
+  /* Visual */
+  background-color: var(--tooltip-bg, #333);
+  color: var(--tooltip-color, #fff);
+  font-size: var(--tooltip-font-size, 0.75rem);
+  border-radius: var(--tooltip-radius, 4px);
+  white-space: nowrap;
+  
+  /* Animation */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--tooltip-transition, 0.2s) ease;
+}
+
+/* Position variants */
+.tooltip--bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip--top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+  margin-bottom: var(--tooltip-offset, 6px);
+}
+
+.tooltip--left {
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  margin-top: 0;
+  margin-right: var(--tooltip-offset, 6px);
+}
+
+.tooltip--right {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  margin-top: 0;
+  margin-left: var(--tooltip-offset, 6px);
+}
+
+/* Visibility states */
+.tooltip-wrapper:hover .tooltip,
+.tooltip--visible {
+  opacity: 1;
+}
+
+.tooltip--hidden {
+  opacity: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .tooltip {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+}

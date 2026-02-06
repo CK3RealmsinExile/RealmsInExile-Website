@@ -1,0 +1,155 @@
+/**
+ * Map Component Styles
+ * Map container with character pin overlays
+ */
+
+/* Map container */
+.map-container {
+  /* Layout */
+  width: 100%;
+  height: 100vh;
+  
+  /* Positioning context for absolute pins */
+  position: relative;
+  
+  /* Scrolling */
+  overflow: auto;
+  
+  /* Account for fixed timeline navigation */
+  padding-top: var(--timeline-height, 89px);
+}
+
+/* Map image */
+.map-container img {
+  /* Display */
+  display: block;
+  
+  /* Sizing - preserve aspect ratio */
+  max-width: 100%;
+  height: auto;
+  
+  /* Prevent dragging the image itself */
+  user-select: none;
+  pointer-events: none;
+}
+
+/**
+ * Character Pin
+ * Positioned absolutely based on normalized coordinates
+ */
+.char-pin {
+  /* Positioning - absolute within map-container */
+  position: absolute;
+  
+  /* Visual appearance */
+  width: var(--pin-size, 1px);
+  height: var(--pin-size, 1px);
+  background-color: var(--color-white, #fff);
+  border: var(--pin-border-width, 4px) solid var(--color-danger, red);
+  border-radius: 50%;
+  
+  /* Interaction */
+  cursor: grab;
+  
+  /* Centering - transform origin at pin center */
+  transform: translate(-50%, -50%);
+  
+  /* Stacking */
+  z-index: var(--z-character-pin, 1100);
+  
+  /* Animation */
+  transition: transform var(--pin-transition, 0.2s) ease,
+              box-shadow var(--pin-transition, 0.2s) ease;
+}
+
+/* Hover state - scale up and add glow */
+.char-pin:hover {
+  transform: translate(-50%, -50%) scale(var(--pin-hover-scale, 1.5));
+  box-shadow: 0 0 var(--pin-glow-radius, 40px) 10px 
+              rgba(var(--color-gold-rgb, 184, 134, 11), 0.7);
+  
+  /* Bring to front when hovered */
+  z-index: calc(var(--z-character-pin, 1100) + 1);
+}
+
+/* Active/dragging state */
+.char-pin:active,
+.char-pin.dragging {
+  cursor: grabbing;
+  
+  /* Slightly larger during drag for better visibility */
+  transform: translate(-50%, -50%) scale(1.6);
+  
+  /* Stronger glow */
+  box-shadow: 0 0 var(--pin-glow-radius, 40px) 15px 
+              rgba(var(--color-gold-rgb, 184, 134, 11), 0.9);
+}
+
+/**
+ * Character Tooltip
+ * Positioned below the pin
+ */
+.char-pin .tooltip {
+  /* Ensure tooltip is always visible on hover */
+  z-index: var(--z-character-tooltip, 1150);
+}
+
+/* Faded state for non-hovered tooltips */
+.char-pin .tooltip.faded {
+  opacity: 0.3;
+}
+
+/* Bring hovered tooltip to front */
+.char-pin:hover .tooltip {
+  z-index: 9999;
+  opacity: 1;
+}
+
+/**
+ * Responsive Design
+ * Adjust pin sizes for mobile devices
+ */
+@media (max-width: 600px) {
+  .char-pin {
+    border-width: 3px;
+  }
+  
+  .char-pin:hover {
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+}
+
+/**
+ * Touch device optimizations
+ * Larger hit areas for touch interactions
+ */
+@media (hover: none) and (pointer: coarse) {
+  .char-pin {
+    /* Larger touch target */
+    padding: 8px;
+    border-width: 5px;
+  }
+  
+  .char-pin:active {
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+/**
+ * Print styles
+ * Show pin positions without interactive elements
+ */
+@media print {
+  .char-pin {
+    cursor: default;
+  }
+  
+  .char-pin:hover {
+    transform: translate(-50%, -50%);
+    box-shadow: none;
+  }
+  
+  .char-pin .tooltip {
+    display: none;
+  }
+}

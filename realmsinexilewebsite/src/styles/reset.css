@@ -1,0 +1,149 @@
+/**
+ * CSS Reset
+ * Provides consistent baseline across browsers
+ * Based on modern CSS reset principles
+ */
+
+/**
+ * Use border-box by default, globally
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+ * Remove default margin and padding
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Document-level defaults
+ */
+html {
+  /* Prevent font size inflation on mobile */
+  -webkit-text-size-adjust: 100%;
+  
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+}
+
+/**
+ * Body defaults
+ */
+body {
+  /* Typography */
+  font-family: var(--font-family-base, system-ui, sans-serif);
+  font-size: var(--font-size-base, 1rem);
+  line-height: var(--line-height-normal, 1.5);
+  
+  /* Colors */
+  color: var(--color-text, rgba(255, 255, 255, 0.87));
+  background-color: var(--color-black, #000);
+  
+  /* Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: var(--line-height-tight, 1.25);
+}
+
+/**
+ * Lists
+ */
+ul, ol {
+  list-style: none;
+}
+
+/**
+ * Links
+ */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/**
+ * Images and media
+ */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Form elements
+ */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/**
+ * Remove button styling
+ */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/**
+ * Tables
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/**
+ * Accessibility: Respect user motion preferences
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/**
+ * Screen reader only content
+ * Hides content visually but keeps it accessible to screen readers
+ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

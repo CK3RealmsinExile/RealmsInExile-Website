@@ -1,0 +1,74 @@
+# GitHub Actions Workflow for Deployment
+# Automatically builds and deploys to GitHub Pages on push to main branch
+
+name: Deploy to GitHub Pages
+
+# Trigger conditions
+on:
+  push:
+    branches:
+      - main  # Run when pushing to main branch
+  workflow_dispatch:  # Allow manual triggering from Actions tab
+
+# Set permissions for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent concurrent deployments
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      # Step 2: Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Use Node.js 20 LTS
+          cache: 'npm'  # Cache npm dependencies for faster builds
+          
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci  # Use ci for clean, reproducible installs
+        
+      # Step 4: Build the application
+      - name: Build application
+        run: npm run build
+        env:
+          # Set base path for GitHub Pages (repository name)
+          VITE_BASE_PATH: /RealmsInExile-Website/
+          
+      # Step 5: Upload build artifacts
+      - name: Upload build artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist  # Upload the build output directory
+  
+  # Deployment job
+  deploy:
+    # Only run after build job completes successfully
+    needs: build
+    
+    runs-on: ubuntu-latest
+    
+    # Deploy to GitHub Pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

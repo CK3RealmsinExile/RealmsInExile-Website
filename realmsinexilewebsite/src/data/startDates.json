@@ -5,11 +5,11 @@
     "date": "S.A. 3320",
     "tooltip": "The Realms in Exile",
     "type": "major",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "The Númenórean exiles establish the kingdoms of Arnor and Gondor in Middle-earth following the Downfall of Númenor.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "Elendil the Tall and his sons Isildur and Anárion lead the Faithful to Middle-earth, bringing with them the palantíri and a seedling of the White Tree.",
+      "The kingdoms are founded: Arnor in the north under Elendil, and Gondor in the south under Isildur and Anárion.",
+      "These realms represent the last great kingdoms of Men in Middle-earth, preserving Númenórean culture and knowledge."
     ]
   },
   {
@@ -17,12 +17,12 @@
     "name": "The Last Alliance",
     "date": "S.A. 3430",
     "tooltip": "The Last Alliance",
-    "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "type": "major",
+    "description": "The Last Alliance of Elves and Men is formed to combat the growing threat of Sauron in Mordor.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "Gil-galad, High King of the Noldor, and Elendil, High King of Arnor and Gondor, lead their combined forces against Sauron.",
+      "The Alliance marches to Mordor, laying siege to Barad-dûr for seven years.",
+      "In the final confrontation on the slopes of Mount Doom, both Gil-galad and Elendil are slain, but Sauron is overthrown when Isildur cuts the One Ring from his hand."
     ]
   },
   {
@@ -31,11 +31,11 @@
     "date": "T.A. 2",
     "tooltip": "Disaster of the Gladden Fields",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "Isildur and his three eldest sons are slain by Orcs at the Gladden Fields, and the One Ring is lost.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "While traveling to Arnor, Isildur's company is ambushed by a vast host of Orcs in the Vales of Anduin.",
+      "Isildur attempts to escape by using the Ring's power of invisibility, but it slips from his finger in the Great River, and he is killed by Orc arrows.",
+      "The Ring lies hidden in the riverbed for over two thousand years, until it is found by Déagol and claimed by Sméagol."
     ]
   },
   {
@@ -44,11 +44,11 @@
     "date": "T.A. 861",
     "tooltip": "Arnor Broken",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "The kingdom of Arnor is divided into three separate realms following the death of King Eärendur.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "The sons of Eärendur quarrel over the succession, and the kingdom is split into Arthedain, Cardolan, and Rhudaur.",
+      "This division weakens the North Kingdom significantly, making it vulnerable to future threats.",
+      "The line of Isildur continues through the kings of Arthedain, while the other kingdoms eventually fall into ruin."
     ]
   },
   {
@@ -57,11 +57,11 @@
     "date": "T.A. 1349",
     "tooltip": "The Rise of Angmar",
     "type": "major",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "The Witch-king establishes the realm of Angmar in the north, threatening the remnants of Arnor.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "A dark realm arises in the northern wastes, ruled by the chief of the Nazgûl, who becomes known as the Witch-king of Angmar.",
+      "Angmar begins a long war against the Dúnedain kingdoms, particularly targeting Arthedain, Cardolan, and Rhudaur.",
+      "This marks the beginning of a centuries-long conflict that will ultimately lead to the destruction of the North Kingdom."
     ]
   },
   {
@@ -70,11 +70,11 @@
     "date": "T.A. 1409",
     "tooltip": "The Fall of Amon Sûl",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "The watchtower of Amon Sûl is destroyed by forces from Angmar, and the palantír is saved by King Arveleg I.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "Angmar launches a major assault on Arthedain, capturing and destroying the ancient watchtower of Weathertop.",
+      "King Arveleg I is slain in the defense of Amon Sûl, but the palantír is rescued and taken to Fornost.",
+      "Cardolan is overrun and falls into ruin, while Rhudaur becomes a vassal of Angmar."
     ]
   },
   {
@@ -83,24 +83,24 @@
     "date": "T.A. 1432",
     "tooltip": "The Kin-Strife",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "A bloody civil war erupts in Gondor over the succession, lasting five years.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "The conflict begins when Castamir the Usurper overthrows King Eldacar, who was born of a mother from Rhovanion.",
+      "Castamir's brutal rule and the burning of Osgiliath turn many against him.",
+      "Eldacar returns with an army, defeats Castamir at the Battle of the Crossings of Erui, and reclaims the throne, but Gondor is permanently weakened."
     ]
   },
   {
     "id": 8,
     "name": "The Great Plague",
-    "date": "T.A. 1634",
+    "date": "T.A. 1636",
     "tooltip": "The Great Plague",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "A devastating plague sweeps across Middle-earth, decimating populations in both Gondor and Arnor.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "The plague originates in the east and spreads rapidly westward, killing vast numbers.",
+      "In Gondor, King Telemnar and all his children perish, and the capital Osgiliath is largely abandoned.",
+      "In the north, the last remnants of Cardolan are destroyed, and the watch on Mordor is abandoned."
     ]
   },
   {
@@ -109,11 +109,11 @@
     "date": "T.A. 1944",
     "tooltip": "The Disaster of the Morannon",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "King Ondoher of Gondor and both his sons are slain in battle against the Wainriders.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "Gondor faces a two-pronged invasion: the Wainriders from the east and the Haradrim from the south.",
+      "King Ondoher leads his army north to meet the Wainriders but is overwhelmed and killed along with both his sons.",
+      "General Eärnil rallies the southern army, defeats the Haradrim, then marches north to destroy the Wainriders at the Battle of the Camp, saving Gondor from conquest."
     ]
   },
   {
@@ -122,24 +122,24 @@
     "date": "T.A. 2510",
     "tooltip": "The Ride of Eorl",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "Eorl the Young leads his people from the north to aid Gondor, and the Rohirrim are granted the land of Calenardhon.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "Gondor is invaded by a massive host of Orcs and Easterlings who overrun Calenardhon and threaten to destroy the northern army.",
+      "Eorl answers Gondor's call for aid, leading his cavalry in a legendary ride from the north.",
+      "At the Battle of the Field of Celebrant, Eorl's riders turn the tide of battle, routing the invaders and saving Gondor."
     ]
   },
   {
     "id": 11,
     "name": "The Long Winter",
-    "date": "T.A. 2754",
+    "date": "T.A. 2758",
     "tooltip": "The Long Winter",
     "type": "minor",
-    "description": "War of the Rohirrim",
+    "description": "A catastrophic winter grips Middle-earth, bringing famine and hardship to Rohan and beyond.",
     "extra": [
-        "An hour of devastation looms. In the north, Helm Hammerhand, Lord of the Riddermark, summons a council that may drastically change the face of Rohan, and may lead to his ultimate doom. Yet now the Rohirrim cannot look to their staunchest allies for aid.",
-        "In the south, legions of Haradrim and corsair fleets muster with newfound vigour, seeking to plunder the rich underbelly of the Southern Kingdom, and Beren of Gondor must ready his realm for the threat. Unbeknownst to them all, the Long Winter approaches; and to the people of the North it shall bring nothing but misery and suffering.",
-        "Can Gondor and Rohan withstand the onslaught, or has the fortune of the Free Peoples turned against them?"
+      "The Long Winter lasts nearly five months, from November to March, with snow covering the land.",
+      "Rohan is simultaneously invaded by Dunlendings and Easterlings, led by Wulf, who captures Edoras.",
+      "King Helm Hammerhand retreats to the Hornburg, where he and his people endure a siege through the terrible winter. Helm dies in the cold, but his nephew Fréaláf retakes Edoras in the spring."
     ]
   },
   {
@@ -148,11 +148,11 @@
     "date": "T.A. 2793",
     "tooltip": "The War of the Dwarves and Orcs",
     "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "description": "The Dwarves wage a brutal war against the Orcs of the Misty Mountains to avenge Thrór.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "King Thrór of Durin's Folk is murdered by the Orc Azog in Moria, sparking outrage among all the Dwarf clans.",
+      "A confederation of Dwarven armies hunts down and destroys Orc strongholds throughout the Misty Mountains.",
+      "The war culminates in the Battle of Azanulbizar at the gates of Moria, where the Dwarves achieve a costly victory but do not reclaim their ancient home."
     ]
   },
   {
@@ -161,27 +161,26 @@
     "date": "T.A. 2941",
     "tooltip": "The Quest for Erebor",
     "type": "minor",
-    "description": "An hour of devastation looms. In the north, Helm Hammerhand, Lord of the Riddermark, summons a council that may drastically change the face of Rohan, and may lead to his ultimate doom. Yet now the Rohirrim cannot look to their staunchest allies for aid.",
+    "description": "Thorin Oakenshield and his company, accompanied by Bilbo Baggins, journey to the Lonely Mountain to reclaim their homeland from Smaug.",
     "extra": [
-        "In the south, legions of Haradrim and corsair fleets muster with newfound vigour, seeking to plunder the rich underbelly of the Southern Kingdom, and Beren of Gondor must ready his realm for the threat. Unbeknownst to them all, the Long Winter approaches; and to the people of the North it shall bring nothing but misery and suffering.",
-        "Can Gondor and Rohan withstand the onslaught, or has the fortune of the Free Peoples turned against them?"
+      "Gandalf orchestrates the quest, seeing the threat that Smaug poses if Sauron should ally with the dragon.",
+      "Bilbo discovers the One Ring in the tunnels beneath the Misty Mountains during the journey.",
+      "The quest succeeds when Smaug is slain, but it leads directly to the Battle of Five Armies and the deaths of Thorin, Fíli, and Kíli."
     ]
   },
   {
     "id": 14,
     "name": "The War of the Ring",
-    "date": "T.A. 3000",
+    "date": "T.A. 3018",
     "tooltip": "The War of the Ring",
     "type": "major",
-    "description": "The Great Battle",
+    "description": "The final confrontation between the Free Peoples and Sauron begins with the discovery that the One Ring has been found.",
     "extra": [
-        "Sauron prepares to crush the last great bulwark of the West, the Kingdom of Gondor. His armies are marshalled, his full strength almost gathered. He needs only the One Ring now to make his victory absolute and assure the fall of Gondor.",
-        "In Gondor, the Steward Denethor secludes himself in the White Tower, preparing his realm for the Great Battle to come. His sons wage war in Osgiliath and Ithilien to turn back the tide, and the men of Gondor fight on, defiant to the last.",
-        "To the south, Gondor's old foes in Haradwaith and Umbar are recovering from previous defeats. Nursing a grudge, they look on Gondor's strength, stretched thin, and see an opportunity to finally even the score.",
-        "Against the threats arrayed against them, can the last kingdom of the Dúnedain hold?",
-        "Upon the windswept green plains of ancient Calenardhon, another vital phase of the great battle is set to begin.",
-        "In Isengard, Saruman the White contemplates a momentous decision which shall bind his name in glory or infamy. Shall he lead Middle-earth into a new order, or will he become a footnote in the great story of this age?",
-        "In golden Meduseld, Théoden King, lord of the Riddermark, sits upon the throne of his forefathers, and he seems to the world whole and hale. But a shadow is upon the king, awaiting its hour, and the borders of his kingdom are pressed by foes unexpected. Shall the Rohirrim rise to meet the great challenge of the age, and blow their horns in defiance at the coming darkness?"
+      "Sauron has rebuilt his power in Mordor and is preparing to crush the last kingdoms of Men.",
+      "In Gondor, Steward Denethor II fortifies his realm against the coming storm, while his sons Boromir and Faramir defend the borders.",
+      "To the south, the Haradrim and Corsairs of Umbar prepare to strike at Gondor's vulnerable coastline.",
+      "In Rohan, King Théoden faces threats from Isengard as Saruman the White makes his fateful choice.",
+      "The fate of Middle-earth hangs in the balance as the quest to destroy the Ring begins."
     ]
   },
   {
@@ -189,12 +188,12 @@
     "name": "The Fourth Age",
     "date": "Fo.A. 120",
     "tooltip": "The Fourth Age",
-    "type": "minor",
-    "description": "Lorem ipsum dolor sit amet.",
+    "type": "major",
+    "description": "The beginning of the Dominion of Men, as the Elves depart Middle-earth and the kingdoms of Gondor and Arnor are reunited.",
     "extra": [
-        "Paragraph 1 about Lorem ipsum dolor sit amet.",
-        "Paragraph 2 with more lore details.",
-        "Paragraph 3 with additional context."
+      "King Elessar (Aragorn) rules the Reunited Kingdom in peace and prosperity.",
+      "The Shire is recognized and protected under the King's authority, entering a golden age.",
+      "The Elves continue their journey west across the Sea, leaving Middle-earth to the dominion of Men."
     ]
   }
 ]
