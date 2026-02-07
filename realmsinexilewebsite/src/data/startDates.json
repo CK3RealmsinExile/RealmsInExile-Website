@@ -93,7 +93,7 @@
   {
     "id": 8,
     "name": "The Great Plague",
-    "date": "T.A. 1636",
+    "date": "T.A. 1634",
     "tooltip": "The Great Plague",
     "type": "minor",
     "description": "A devastating plague sweeps across Middle-earth, decimating populations in both Gondor and Arnor.",
@@ -132,7 +132,7 @@
   {
     "id": 11,
     "name": "The Long Winter",
-    "date": "T.A. 2758",
+    "date": "T.A. 2754",
     "tooltip": "The Long Winter",
     "type": "minor",
     "description": "A catastrophic winter grips Middle-earth, bringing famine and hardship to Rohan and beyond.",

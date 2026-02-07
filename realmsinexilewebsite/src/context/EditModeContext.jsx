@@ -1,6 +1,9 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+const IS_PRODUCTION = import.meta.env.PROD
+const EDIT_MODE_ENABLED = import.meta.env.VITE_ENABLE_EDIT_MODE === 'true'
+
 /**
  * Edit Mode Context
  * Manages application edit/view mode state
@@ -14,8 +17,12 @@ const EditModeContext = createContext(null)
  * @param {React.ReactNode} props.children - Child components
  */
 export function EditModeProvider({ children }) {
+  // Disable edit mode in production unless explicitly enabled
+  const canEdit = !IS_PRODUCTION || EDIT_MODE_ENABLED
+  
   // Initialize from localStorage, default to false (view mode)
   const [isEditMode, setIsEditMode] = useState(() => {
+    if (!canEdit) return false  // ← Add this line
     const saved = localStorage.getItem('realmsinexile_editmode')
     return saved === 'true'
   })
@@ -64,6 +71,19 @@ export function EditModeProvider({ children }) {
     window.addEventListener('keypress', handleKeyPress)
     return () => window.removeEventListener('keypress', handleKeyPress)
   }, [])
+
+  if (!canEdit) {
+    return (
+      <EditModeContext.Provider value={{ 
+        isEditMode: false, 
+        toggleEditMode: () => {}, 
+        enableEditMode: () => {}, 
+        disableEditMode: () => {} 
+      }}>
+        {children}
+      </EditModeContext.Provider>
+    )
+  }
 
   const value = {
     isEditMode,
