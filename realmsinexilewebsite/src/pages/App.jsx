@@ -1,7 +1,7 @@
 import { TimelineNav } from '@components/Timeline'
 import { MapContainer } from '@components/Map'
 import { Sidebar } from '@components/Sidebar'
-import { EditModeToggle } from '@components/shared'  // ← Add this
+import { EditModeToggle, CharacterSearch } from '@components/shared'  // ← Update
 import '@styles/App.css'
 
 /**
@@ -11,7 +11,8 @@ function App() {
   return (
     <div className="app">
       <TimelineNav />
-      <EditModeToggle />  {/* ← Add this */}
+      <EditModeToggle />
+      <CharacterSearch />
       <MapContainer />
       <Sidebar />
     </div>

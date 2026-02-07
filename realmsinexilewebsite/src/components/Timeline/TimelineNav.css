@@ -230,3 +230,62 @@
     font-size: 0.7rem;
   }
 }
+
+/**
+ * Highlighted Timeline State (from character search)
+ * Indicates timeline dates where searched character appears
+ */
+.circle.highlighted {
+  /* Pulsing ring animation */
+  position: relative;
+}
+
+.circle.highlighted::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Ring size (larger than circle) */
+  width: 36px;
+  height: 36px;
+  
+  /* Visual */
+  border: 3px solid var(--color-gold, #b8860b);
+  border-radius: 50%;
+  
+  /* Pulsing animation */
+  animation: pulseRing 2s ease-in-out infinite;
+  
+  /* Behind circle */
+  z-index: -1;
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+/* Active highlighted circle (both active and highlighted) */
+.circle.active.highlighted {
+  /* Enhance the glow */
+  box-shadow: 0 0 20px 14px rgba(184, 134, 11, 0.9);
+}
+
+/**
+ * Reduced motion - static highlight instead of pulse
+ */
+@media (prefers-reduced-motion: reduce) {
+  .circle.highlighted::before {
+    animation: none;
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+  }
+}

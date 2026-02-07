@@ -110,3 +110,52 @@ export const URL_CONFIG = {
   // Prevents excessive history entries during rapid state changes
   DEBOUNCE_DELAY: 300,
 }
+
+/**
+ * Faction/Character colors
+ * Used for color-coding character pins by allegiance
+ */
+export const FACTION_COLORS = {
+  gondor: '#4A90E2',      // Blue - Gondor
+  rohan: '#7CB342',       // Green - Rohan
+  wizards: '#9C27B0',     // Purple - Wizards
+  elves: '#26A69A',       // Teal - Elves
+  dwarves: '#FF6F00',     // Orange - Dwarves
+  dunedain: '#5D4037',    // Brown - Rangers
+  evil: '#D32F2F',        // Red - Enemies
+  neutral: '#B8860B',     // Gold - Neutral/Default
+}
+
+/**
+ * Get faction color with fallback
+ * 
+ * @param {string} faction - Faction identifier
+ * @returns {string} Hex color code
+ */
+export function getFactionColor(faction) {
+  return FACTION_COLORS[faction] || FACTION_COLORS.neutral
+}
+
+/**
+ * Get character initials for pin display
+ * Takes first letter of first word and first letter of last word
+ * 
+ * @param {string} name - Character name
+ * @returns {string} Initials (1-2 characters)
+ * 
+ * @example
+ * getCharacterInitials("Aragorn") // "A"
+ * getCharacterInitials("Gandalf the Grey") // "GG"
+ * getCharacterInitials("Théoden King") // "TK"
+ */
+export function getCharacterInitials(name) {
+  const words = name.split(' ').filter(word => 
+    !['the', 'of', 'and'].includes(word.toLowerCase())
+  )
+  
+  if (words.length === 1) {
+    return words[0][0].toUpperCase()
+  }
+  
+  return (words[0][0] + words[words.length - 1][0]).toUpperCase()
+}

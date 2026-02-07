@@ -5,12 +5,13 @@ import { Tooltip } from '@components/shared'
 const TimelineItem = memo(function TimelineItem({
   startDate,
   isActive,
+  isHighlighted = false,
   onClick,
   disabled = false,
 }) {
   const handleKeyDown = (e) => {
     if (disabled) return
-    
+
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
       onClick()
@@ -25,7 +26,7 @@ const TimelineItem = memo(function TimelineItem({
   return (
     <div className="timeline-item">
       <div
-        className={`circle ${isActive ? 'active' : ''} ${disabled ? 'disabled' : ''}`}
+        className={`circle ${isActive ? 'active' : ''} ${disabled ? 'disabled' : ''} ${isHighlighted ? 'highlighted' : ''}`}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         role="button"
@@ -49,6 +50,7 @@ TimelineItem.propTypes = {
     tooltip: PropTypes.string.isRequired,
   }).isRequired,
   isActive: PropTypes.bool.isRequired,
+  isHighlighted: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
 }

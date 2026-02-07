@@ -1,22 +1,16 @@
 import { useRef, useState, useCallback } from 'react'
 import { useAppContext } from '@context/AppContext'
 import { useCharacterDrag } from '@hooks/useCharacterDrag'
-import { useLoading, LOADING_TYPES } from '@context/LoadingContext'  // ← Add
+import { useLoading, LOADING_TYPES } from '@context/LoadingContext'
+import { useSearch } from '@context/SearchContext'
 import CharacterPin from './CharacterPin'
-import { Spinner } from '@components/shared'  // ← Add
+import { Spinner } from '@components/shared'
 import './Map.css'
 
-/**
- * Map container component
- * Displays map image with draggable character pins
- * Includes loading state for map image
- * 
- * @component
- */
 function MapContainer() {
   const mapImageRef = useRef(null)
   const [hoveredCharId, setHoveredCharId] = useState(null)
-  const { isLoading, setLoading } = useLoading()  // ← Add
+  const { isLoading, setLoading } = useLoading()
   
   const {
     startDate,
@@ -25,19 +19,13 @@ function MapContainer() {
     setSelectedCharacter,
     setSidebarOpen,
   } = useAppContext()
+  
+  const { filteredCharacter, isFiltering } = useSearch()
 
-  /**
-   * Handles map image load completion
-   * Clears loading state when image is fully loaded
-   */
   const handleImageLoad = useCallback(() => {
     setLoading(LOADING_TYPES.MAP_IMAGE, false)
   }, [setLoading])
 
-  /**
-   * Handles map image load start
-   * Sets loading state when image begins loading
-   */
   const handleImageLoadStart = useCallback(() => {
     setLoading(LOADING_TYPES.MAP_IMAGE, true)
   }, [setLoading])
@@ -75,23 +63,30 @@ function MapContainer() {
     [setSelectedCharacter, setSidebarOpen]
   )
 
-  const visibleCharacters = characters.filter((char) =>
-    char.startDates.includes(startDate)
-  )
+  // Filter characters based on timeline and search
+  const visibleCharacters = characters.filter((char) => {
+    // Must exist at current timeline
+    if (!char.startDates.includes(startDate)) return false
+    
+    // If filtering, only show filtered character
+    if (isFiltering()) {
+      return char.id === filteredCharacter.id
+    }
+    
+    return true
+  })
 
   const isMapLoading = isLoading(LOADING_TYPES.MAP_IMAGE)
 
   return (
     <div className="map-container">
-      {/* Loading skeleton - shows while map loads */}
       {isMapLoading && (
         <div className="map-skeleton" aria-label="Loading map">
           <Spinner size="large" label="Loading map..." />
         </div>
       )}
 
-      {/* Map wrapper - hidden until loaded to prevent layout shift */}
-      <div 
+      <div
         className={`map-wrapper ${isMapLoading ? 'map-wrapper--loading' : ''}`}
         style={{ position: 'relative', display: 'inline-block' }}
       >
@@ -100,32 +95,34 @@ function MapContainer() {
           src="/assets/map.webp"
           alt="Realms in Exile Map"
           draggable={false}
-          onLoadStart={handleImageLoadStart}  // ← Add
-          onLoad={handleImageLoad}             // ← Add
-          onError={() => {                     // ← Add error handling
+          onLoadStart={handleImageLoadStart}
+          onLoad={handleImageLoad}
+          onError={() => {
             setLoading(LOADING_TYPES.MAP_IMAGE, false)
             console.error('Failed to load map image')
           }}
         />
 
-        {/* Character pins positioned relative to image */}
-        {visibleCharacters.map((char) => {
-          const position = char.positions[startDate] || char.position
+        {!isMapLoading &&
+          visibleCharacters.map((char) => {
+            const position = char.positions[startDate] || char.position
+            const isFilteredChar = isFiltering() && char.id === filteredCharacter.id
 
-          return (
-            <CharacterPin
-              key={char.id}
-              character={char}
-              position={position}
-              isDragging={isDragging(char.id)}
-              isHovered={hoveredCharId === char.id}
-              onDragStart={startDrag}
-              onClick={handleCharacterClick}
-              onMouseEnter={setHoveredCharId}
-              onMouseLeave={() => setHoveredCharId(null)}
-            />
-          )
-        })}
+            return (
+              <CharacterPin
+                key={char.id}
+                character={char}
+                position={position}
+                isDragging={isDragging(char.id)}
+                isHovered={hoveredCharId === char.id}
+                isFiltered={isFilteredChar}
+                onDragStart={startDrag}
+                onClick={handleCharacterClick}
+                onMouseEnter={setHoveredCharId}
+                onMouseLeave={() => setHoveredCharId(null)}
+              />
+            )
+          })}
       </div>
     </div>
   )
