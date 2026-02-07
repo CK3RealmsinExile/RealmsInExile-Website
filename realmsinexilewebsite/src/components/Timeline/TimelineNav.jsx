@@ -5,12 +5,9 @@ import './TimelineNav.css'
 /**
  * Timeline navigation component
  * Displays horizontal timeline with selectable date markers
- * Connected to global app context for state management
+ * Now supports URL state for shareable links
  * 
  * @component
- * 
- * @example
- * <TimelineNav />
  */
 function TimelineNav() {
   const {
@@ -25,7 +22,7 @@ function TimelineNav() {
 
   /**
    * Handles timeline selection
-   * Updates global state and opens sidebar with timeline info
+   * Updates global state (which triggers URL update via AppContext)
    * 
    * @param {Object} timeline - Selected timeline object
    */
@@ -33,13 +30,13 @@ function TimelineNav() {
     setStartDate(timeline.date)
     setStartName(timeline.name)
     setSidebarOpen(true)
-    setSelectedCharacter(null) // Clear character selection when viewing timeline info
+    setSelectedCharacter(null) // Clear character when changing timeline
   }
 
   return (
-    <nav 
-      className="timeline-nav" 
-      role="navigation" 
+    <nav
+      className="timeline-nav"
+      role="navigation"
       aria-label="Historical timeline navigation"
     >
       {startDatesData.map((start) => (

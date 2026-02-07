@@ -88,3 +88,25 @@ export const EXPORT = {
   FILENAME: 'characters_positions.json',
   INDENT: 2, // JSON.stringify spacing
 }
+
+/**
+ * URL query parameter names
+ * Centralized to prevent typos and enable easy refactoring
+ */
+export const URL_PARAMS = {
+  TIMELINE: 'timeline',      // Timeline date parameter (e.g., "T.A. 3018")
+  CHARACTER: 'character',    // Character ID parameter (e.g., "char_001")
+}
+
+/**
+ * URL state configuration
+ */
+export const URL_CONFIG = {
+  // Use replaceState (don't add to history) for programmatic updates
+  // Use pushState (add to history) for user-initiated navigation
+  USE_HISTORY: true,
+  
+  // Debounce delay for URL updates (ms)
+  // Prevents excessive history entries during rapid state changes
+  DEBOUNCE_DELAY: 300,
+}
