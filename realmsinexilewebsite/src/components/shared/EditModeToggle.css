@@ -1,0 +1,121 @@
+/**
+ * Edit Mode Toggle Component Styles
+ */
+
+.edit-mode-toggle {
+  position: fixed;
+  top: calc(var(--timeline-height, 89px) + 20px);
+  left: 20px;
+  z-index: var(--z-sidebar-toggle, 1500);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-mode-toggle__button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: var(--color-grey-bg, grey);
+  border: 2px solid var(--color-gold, #b8860b);
+  border-radius: var(--radius-md, 8px);
+  color: var(--color-white, #fff);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.edit-mode-toggle__button:hover {
+  background-color: rgba(184, 134, 11, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.edit-mode-toggle__button--active {
+  background-color: var(--color-gold, #b8860b);
+  border-color: var(--color-white, #fff);
+}
+
+.edit-mode-toggle__button--active:hover {
+  background-color: var(--color-gold-dark, #a57c08);
+}
+
+.edit-mode-toggle__icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.edit-mode-toggle__text {
+  user-select: none;
+}
+
+/* Edit mode indicator */
+.edit-mode-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: rgba(184, 134, 11, 0.9);
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-white, #fff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: slideInLeft 0.3s ease;
+}
+
+.edit-mode-indicator__dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-white, #fff);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.edit-mode-indicator__text {
+  user-select: none;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .edit-mode-toggle {
+    top: calc(var(--timeline-height, 89px) + 10px);
+    left: 10px;
+  }
+  
+  .edit-mode-toggle__button {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .edit-mode-indicator {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+}

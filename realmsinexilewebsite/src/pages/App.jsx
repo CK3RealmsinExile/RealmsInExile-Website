@@ -1,23 +1,19 @@
 import { TimelineNav } from '@components/Timeline'
 import { MapContainer } from '@components/Map'
 import { Sidebar } from '@components/Sidebar'
-import { useAppContext } from '@context/AppContext'
+import { EditModeToggle } from '@components/shared'  // ← Add this
 import '@styles/App.css'
 
 /**
  * Main application component
- * Orchestrates layout of timeline, map, and sidebar components
- * 
- * @component
  */
 function App() {
-  const { sidebarOpen } = useAppContext()
-
   return (
     <div className="app">
       <TimelineNav />
+      <EditModeToggle />  {/* ← Add this */}
       <MapContainer />
-      <Sidebar isOpen={sidebarOpen} />
+      <Sidebar />
     </div>
   )
 }

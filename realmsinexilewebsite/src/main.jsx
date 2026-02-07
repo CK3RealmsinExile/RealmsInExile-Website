@@ -2,18 +2,17 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from '@/pages/App'
 import { AppProvider } from '@context/AppContext'
+import { EditModeProvider } from '@context/EditModeContext'  // ← Add this
 import '@styles/variables.css'
 import '@styles/reset.css'
 import '@styles/index.css'
 
-/**
- * Application entry point
- * Mounts React app to DOM and wraps with global providers
- */
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AppProvider>
-      <App />
-    </AppProvider>
+    <EditModeProvider>  {/* ← Wrap with EditModeProvider */}
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </EditModeProvider>
   </StrictMode>
 )

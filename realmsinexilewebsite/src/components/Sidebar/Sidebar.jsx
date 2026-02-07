@@ -1,4 +1,5 @@
 import { useAppContext } from '@context/AppContext'
+import { useEditMode } from '@context/EditModeContext'  // ← Add this
 import { exportCharacterData } from '@utils/exportHelpers'
 import { Button } from '@components/shared'
 import CharacterDetails from './CharacterDetails'
@@ -11,10 +12,11 @@ function Sidebar() {
     setSidebarOpen,
     selectedCharacter,
     startName,
-    startDate,
     startDatesData,
     characters,
   } = useAppContext()
+  
+  const { isEditMode } = useEditMode()  // ← Add this
 
   const handleClose = () => {
     setSidebarOpen(false)
@@ -24,10 +26,6 @@ function Sidebar() {
     setSidebarOpen(true)
   }
 
-  /**
-   * Handles complete character data export
-   * Exports full characters.json format with updated positions
-   */
   const handleExport = () => {
     try {
       exportCharacterData(characters, 'characters.json')
@@ -62,16 +60,19 @@ function Sidebar() {
           )}
         </div>
 
-        <footer className="sidebar__footer">
-          <Button
-            variant="secondary"
-            size="small"
-            onClick={handleExport}
-            ariaLabel="Export complete character data as JSON"
-          >
-            Export Characters  {/* ← Changed button text */}
-          </Button>
-        </footer>
+        {/* Only show export button in edit mode */}
+        {isEditMode && (
+          <footer className="sidebar__footer">
+            <Button
+              variant="secondary"
+              size="small"
+              onClick={handleExport}
+              ariaLabel="Export complete character data as JSON"
+            >
+              Export Characters
+            </Button>
+          </footer>
+        )}
       </aside>
 
       <button
