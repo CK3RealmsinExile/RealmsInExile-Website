@@ -7,22 +7,13 @@ import './CharacterSearch.css'
  * Character search component
  * Provides autocomplete search for characters with timeline filtering
  * 
- * Features:
- * - Real-time autocomplete suggestions
- * - Keyboard navigation (arrow keys, enter, escape)
- * - Click-outside to close dropdown
- * - Highlights matching text in results
- * - Shows character count per result
- * 
  * @component
- * 
- * @example
- * <CharacterSearch />
  */
 function CharacterSearch() {
   const { characters } = useAppContext()
   const {
     searchQuery,
+    filteredCharacter,
     setSearch,
     setFilter,
     clearSearch,
@@ -36,7 +27,6 @@ function CharacterSearch() {
 
   /**
    * Get filtered character results based on search query
-   * Sorts by exact match first, then alphabetically
    */
   const searchResults = useCallback(() => {
     if (!searchQuery.trim()) return []
@@ -48,30 +38,23 @@ function CharacterSearch() {
         const aName = a.name.toLowerCase()
         const bName = b.name.toLowerCase()
 
-        // Exact match first
         const aExact = aName === query
         const bExact = bName === query
         if (aExact && !bExact) return -1
         if (!aExact && bExact) return 1
 
-        // Starts with query second
         const aStarts = aName.startsWith(query)
         const bStarts = bName.startsWith(query)
         if (aStarts && !bStarts) return -1
         if (!aStarts && bStarts) return 1
 
-        // Alphabetical
         return aName.localeCompare(bName)
       })
-      .slice(0, 5) // Limit to 5 results for UX
+      .slice(0, 5)
   }, [searchQuery, characters, matchesSearch])
 
   const results = searchResults()
 
-  /**
-   * Handles input change
-   * Opens dropdown and resets selection
-   */
   const handleInputChange = (e) => {
     const value = e.target.value
     setSearch(value)
@@ -79,20 +62,12 @@ function CharacterSearch() {
     setSelectedIndex(-1)
   }
 
-  /**
-   * Handles selecting a character from results
-   * 
-   * @param {Object} character - Selected character
-   */
   const handleSelectCharacter = (character) => {
     setFilter(character)
     setIsOpen(false)
-    inputRef.current?.blur() // Remove focus after selection
+    inputRef.current?.blur()
   }
 
-  /**
-   * Handles clearing the search
-   */
   const handleClear = () => {
     clearSearch()
     setIsOpen(false)
@@ -100,12 +75,6 @@ function CharacterSearch() {
     inputRef.current?.focus()
   }
 
-  /**
-   * Handles keyboard navigation
-   * Arrow up/down: Navigate results
-   * Enter: Select highlighted result
-   * Escape: Close dropdown
-   */
   const handleKeyDown = (e) => {
     if (!isOpen) {
       if (e.key === 'ArrowDown' && searchQuery.trim()) {
@@ -145,9 +114,6 @@ function CharacterSearch() {
     }
   }
 
-  /**
-   * Click outside handler to close dropdown
-   */
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -159,12 +125,6 @@ function CharacterSearch() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  /**
-   * Highlights matching text in result
-   * 
-   * @param {string} text - Text to highlight
-   * @returns {JSX.Element} Text with highlighted matches
-   */
   const highlightMatch = (text) => {
     if (!searchQuery.trim()) return text
 
@@ -182,10 +142,16 @@ function CharacterSearch() {
     )
   }
 
+  const searchClasses = [
+    'character-search',
+    filteredCharacter && 'character-search--active',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   return (
-    <div className="character-search" ref={searchRef}>
+    <div className={searchClasses} ref={searchRef}>
       <div className="character-search__input-wrapper">
-        {/* Search icon */}
         <svg
           className="character-search__icon"
           width="18"
@@ -200,7 +166,6 @@ function CharacterSearch() {
           <path d="m21 21-4.35-4.35" />
         </svg>
 
-        {/* Search input */}
         <input
           ref={inputRef}
           type="text"
@@ -219,7 +184,6 @@ function CharacterSearch() {
           }
         />
 
-        {/* Clear button */}
         {searchQuery && (
           <button
             className="character-search__clear"
@@ -241,9 +205,15 @@ function CharacterSearch() {
             </svg>
           </button>
         )}
+
+        {/* ← Add filtering badge */}
+        {filteredCharacter && (
+          <span className="character-search__badge" aria-label="Currently filtering">
+            Active
+          </span>
+        )}
       </div>
 
-      {/* Dropdown results */}
       {isOpen && results.length > 0 && (
         <ul
           className="character-search__results"
@@ -275,7 +245,6 @@ function CharacterSearch() {
         </ul>
       )}
 
-      {/* No results message */}
       {isOpen && searchQuery.trim() && results.length === 0 && (
         <div className="character-search__no-results">
           No characters found matching "{searchQuery}"

@@ -37,10 +37,11 @@ export function exportCharacterData(charactersData, filename = 'characters.json'
       // Round the default position too
       const roundedDefaultPosition = roundCoordinates(char.position)
 
-      // Return complete character object
+      // Return complete character object with ALL fields
       return {
         id: char.id,
         name: char.name,
+        faction: char.faction || 'neutral',
         description: char.description,
         ...(char.image && { image: char.image }),
         ...(char.metadata && { metadata: char.metadata }),
@@ -116,6 +117,10 @@ export function exportCharacterPositions(charactersData, filename = EXPORT.FILEN
 
 /**
  * Validates character data structure
+ * Ensures data meets expected schema before export
+ * 
+ * @param {Array<Object>} data - Character data to validate
+ * @returns {boolean} True if valid
  */
 export function validateCharacterData(data) {
   if (!Array.isArray(data)) return false
@@ -131,6 +136,10 @@ export function validateCharacterData(data) {
 
 /**
  * Imports character data from JSON file
+ * 
+ * @param {File} file - JSON file from file input
+ * @returns {Promise<Array<Object>>} Parsed character data
+ * @throws {Error} If file is invalid or parsing fails
  */
 export async function importCharacterData(file) {
   if (!file || file.type !== 'application/json') {

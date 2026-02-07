@@ -4,6 +4,13 @@ import { useSearch } from '@context/SearchContext'
 import TimelineItem from './TimelineItem'
 import './TimelineNav.css'
 
+/**
+ * Timeline navigation component
+ * Displays horizontal timeline with selectable date markers
+ * Highlights dates where filtered character appears
+ * 
+ * @component
+ */
 function TimelineNav() {
   const {
     startName,
@@ -18,6 +25,12 @@ function TimelineNav() {
   const { isLoading } = useLoading()
   const { getFilteredDates, isFiltering } = useSearch()
 
+  /**
+   * Handles timeline selection
+   * Updates global state and opens sidebar
+   * 
+   * @param {Object} timeline - Selected timeline object
+   */
   const handleTimelineSelect = (timeline) => {
     setStartDate(timeline.date)
     setStartName(timeline.name)
@@ -27,6 +40,7 @@ function TimelineNav() {
 
   const isTransitioning = isLoading(LOADING_TYPES.TIMELINE)
   const filteredDates = getFilteredDates()
+  const filtering = isFiltering()
 
   return (
     <nav
@@ -34,10 +48,11 @@ function TimelineNav() {
       role="navigation"
       aria-label="Historical timeline navigation"
       aria-busy={isTransitioning}
+      data-filtering={filtering}
     >
       {startDatesData.map((start) => {
-        // Check if this timeline should be highlighted (has filtered character)
-        const isHighlighted = isFiltering() && filteredDates.includes(start.date)
+        // Check if this timeline should be highlighted
+        const isHighlighted = filtering && filteredDates.includes(start.date)
         
         return (
           <TimelineItem
