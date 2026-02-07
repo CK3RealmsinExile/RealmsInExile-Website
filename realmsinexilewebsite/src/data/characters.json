@@ -162,7 +162,7 @@
   {
     "id": "char_004",
     "name": "King Argeleb of Arthedain",
-    "faction": "gondor",
+    "faction": "good",
     "description": [
       "With the death of his father Malvegil, the new King of Arthedain Argeleb now stands poised to rebuild the shattered realm of his forefathers. The heir of Isildur, his claim to the position of King of Arnor is unquestionable, and Arthedain stands as the mightiest of the successor kingdoms of Arnor, with the second mightiest, Cardolan, friendly to it.",
       "But Argeleb's pride and ambition might yet be his downfall, for in his focus upon the restoration of Arnor, he has blinded himself to many externalities..."
@@ -190,7 +190,7 @@
   {
     "id": "char_005",
     "name": "King Tarvegil",
-    "faction": "gondor",
+    "faction": "good",
     "description": [
       "With the death of King Tarastôr, the male-line of Isildur died out in Cardolan. The throne fell to his cousins in the house of Caladir, one of the most ancient and powerful houses in Arnor. For his part, Tarvegil has proven himself an able administrator and diplomat, but has watched his north-eastern border with a wary eye.",
       "Cardolan has been aligned with Arthedain ever since they supported King Tarcil during the Cardolan Succession Crisis, and Tarvegil has endeavored to continue the good relations with Fornost. The chaos of Rhudaur's fall to the Hillmen has made it abundantly clear that continued good relations with Arthedain remains of paramount importance, and soon Tarvegil will face a choice that will chart the future of Cardolan..."
@@ -331,7 +331,7 @@
   {
     "id": "char_010",
     "name": "Steward Beren",
-    "faction": "gondor",
+    "faction": "good",
     "description": [
       "Beren son of Egalmoth, Lord and Steward of [gondor|E], rules with diligence and honor. He is not a man of great stature nor valor, nor is he skilled in arms, nor is his personality fiery and impudent. Yet Beren is a man who serves his people and subjects with honor, and whether he knows it or not, he shall face a mighty trial. In the south, the [haradrim|E] under the rising realm of Harwan prepare to wage war against the [southernkingdom|E] by land and sea, and in this they are aided by their [Concept('umbar','corsair')|E] vassals. This shall define the reign of Beren son of Egalmoth, and the diligence of his character.",
       "Can Beren hold off the Haradrim and corsair forces, or shall Harondor at last be wrested from Gondor's control?"
@@ -447,7 +447,7 @@
   {
     "id": "char_014",
     "name": "Chieftain Arassuil",
-    "faction": "gondor",
+    "faction": "good",
     "description": [
       "In the wilderness of [eriador|E], Chieftain Arassuil leads the [dunedainnorth|E] in the defence of the north against the growing threat of the [orcs|E] in the [mistymountains|E]. He is a hardy and humorless man, known for setting elaborate traps for any enemy that dares set foot into the lands that are under the protection of the Rangers.",
       "Shackled by a duty to both keep [eriador|E] safe as well as the line of [isildur|E] unbroken, Chieftain Arassuil spends only very few days in the comforts of his home in the Angle of Mitheithel, instead tirelessly traversing the wilderness, tracking down evil wherever it may appear..."
@@ -533,7 +533,7 @@
   {
     "id": "char_017",
     "name": "High Lord Mellondir II",
-    "faction": "gondor",
+    "faction": "good",
     "description": [
       "When the last King of Rhudaur, the feeble Aldor, was slain by the upstart Hwaldar, a brutal [hillman|E] chief, most of the Dúnedain that remained within Rhudaur fled to the west.",
       "All but one - Lord Mellondir of Fennas Drúnin still stands his ground, between the rivers Bruinen and Mitheithel. War is brewing as the savage tribes of Hillmen now gather to drive out even the last defenders of the Angle.",
@@ -563,7 +563,7 @@
   {
     "id": "char_018",
     "name": "King Romendacil II",
-    "faction": "gondor",
+    "faction": "good",
     "description": [
       "In truth, Rómendacil II has reigned far longer than he has sat the throne. Born Minalcar, he served as Regent of Gondor for both his uncle Narmacil I and his father Calmacil, where he proved himself an energetic, dynamic, and shrewd leader. After defeating a great Easterling force in T.A. 1248 and claiming the name of Rómendacil, he led Gondorian focus and diplomacy in a completely new direction. He courted the northmen of Rhovanion and established a powerful network of allies, clients, and subjects in Gondor's northern frontier, securing the north as the Ship-Kings once had the south. He fortified the Anduin and erected the mighty Argonath statues.",
       "Now in the twilight of his reign, Rómendacil II stands triumphant as one of the greatest Gondorian kings and statemen, with a legacy few can rival. Yet his policies towards the north may yet be the seeds of a great calamity, though he does not realize it.."
@@ -730,7 +730,7 @@
   {
     "id": "char_024",
     "name": "Steward Denethor II",
-    "faction": "gondor",
+    "faction": "good",
     "description": [
       "Denethor II, Steward of [gondor|E], is a reserved and harsh man, but his temperament matches his kingdom. For years now, he has parried every thrust made by [mordor|E], and under his steely leadership, the [dunedainsouth|E] have held the line against increasingly impossible odds. In any lesser kingdom, such a man would have long ago rightfully named himself King, but Denethor is no lesser man. Steward he is, and Gondor his charge.",
       "Secluded in the [whitetower|E], the Steward of Gondor prepares the defence of his realm. But despair lurks in the shadows, biding its time."
@@ -758,7 +758,7 @@
   {
     "id": "char_025",
     "name": "Prince Adrahil II",
-    "faction": "gondor",
+    "faction": "good",
     "description": [
       "Adrahil II, Prince of [dol_amroth|E], stands as a bastion against Corsair and [haradrim|E] incursions from the south, but as he nears his twilight years it falls upon his son, the gallant Imrahil, to carry forth the banner of the Silver Swan against the coming tide of darkness."
     ],
@@ -868,7 +868,7 @@
   {
     "id": "char_029",
     "name": "High King Nîlûhîn II",
-    "faction": "neutral",
+    "faction": "good",
     "description": [
       "[bellakar|E] is a realm diminished, but not defeated. Through civil war and strife, the [tumakveh|E] have endured, even as their allies grew fewer, and their foes multiplied.",
       "Nîlûhîn II, King of Bellakar, is a dynamic and young ruler - the death of his father thrust him onto the throne before his time, but in scant years has already proven himself an able one. Now, with the great trial set to begin for the people of [middleearth|E], it falls to him and his new-born daughters to shoulder the burden of the shield of the free in [harad|E]."
@@ -1006,7 +1006,7 @@
   {
     "id": "char_034",
     "name": "Grimbeorn the Old",
-    "faction": "neutral",
+    "faction": "good",
     "description": [
       "The son of Beorn, who became a great lord in his own right. Like his father, he could take on the shape of a bear, and he dwelt in the same regions of the Vales of [anduin|E], between the [mistymountains|E] and [mirkwood|E].",
       "His [northron|E] people, the Beornings, kept the roads through their lands open and clear of [orcs|E] and Wolves. They maintained the Ford of Carrock that crossed the Great River, and the High Pass through the Mountains. Without them the passage across the northern Vales of Anduin would have been hard or impossible, though Grimbeorn's people charged a hefty toll for their services."
@@ -1219,7 +1219,7 @@
   {
     "id": "char_039",
     "name": "Rashânashân Taxmaspâda II",
-    "faction": "neutral",
+    "faction": "good",
     "description": [
       "Rashânashân Taxmaspâda II is third emperor of the sixth imperial dynasty of [khy|E], the heir and steward of a great legacy. Khy stands proud as the light of the East, bastion of the Faith, and the lighthouse of Men. It is his holy and sacred duty to preserve it.",
       "Yet since his dynasty's rise Khy has turned inward, seeking to arrest internal factionalism that flowered under the reign of the fifth imperial dynasty, ruled by his distant cousins which his family deposed. This has led to the waning of their foreign hegemony, while internal issues still gnaw at the roots of the dynasty.",
@@ -1248,7 +1248,7 @@
   {
     "id": "char_040",
     "name": "Rashâna Jahanabad",
-    "faction": "neutral",
+    "faction": "good",
     "description": [
       "High Governor Jahanabad Vasnan of Sammar administers from the great port city of Samarth, which his family has controlled for generations. He stands as one of the mightiest men in [khy|E], but also at the head of a perilous faultline which runs through the realm, threatening to break it in twain.",
       "The Vasnans are old allies of the sixth imperial dynasty, but they have recently fallen out dramatically, putting the Rashânashân and their former most powerful supporters on opposing sides of court politics as personal enmity divides them.",
@@ -1277,7 +1277,7 @@
   {
     "id": "char_041",
     "name": "Rashâna Zimrikhâr",
-    "faction": "neutral",
+    "faction": "good",
     "description": [
       "Zimrikhâr's family is not of an ancient high pedigree, rather they owe their throne to imperial [khyan|E] intervention, undertaken to cast back the Côdyan Yoke. For many years they have faithfully served the empire in thanks and repayment for this deed. However, with Khy's recent turn inward, Anarikê finds itself increasingly autonomous once more as the gaze of their overlords turn to other matters.",
       "But a window is opening, if Zimrikhâr desires to seize it; a window to restore Anarikê's position as a proud and independent power, whose fleets once more dominate the trade and seas of the Bay of Ormal."

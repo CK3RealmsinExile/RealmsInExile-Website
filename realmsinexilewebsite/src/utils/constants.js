@@ -116,7 +116,7 @@ export const URL_CONFIG = {
  * Used for color-coding character pins by allegiance
  */
 export const FACTION_COLORS = {
-  gondor: '#4A90E2',      // Blue - Gondor
+  good: '#4A90E2',      // Blue - Gondor
   rohan: '#7CB342',       // Green - Rohan
   wizards: '#9C27B0',     // Purple - Wizards
   elves: '#26A69A',       // Teal - Elves
