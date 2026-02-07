@@ -2,55 +2,37 @@ import { memo } from 'react'
 import PropTypes from 'prop-types'
 import { Tooltip } from '@components/shared'
 
-/**
- * Individual timeline item representing a historical date
- * Displays as a circle with hover tooltip
- * Memoized to prevent unnecessary re-renders
- * 
- * @component
- * 
- * @param {Object} props
- * @param {Object} props.startDate - Timeline date object
- * @param {number} props.startDate.id - Unique identifier
- * @param {string} props.startDate.name - Timeline name
- * @param {string} props.startDate.date - Display date (e.g., "T.A. 3000")
- * @param {string} props.startDate.tooltip - Tooltip text
- * @param {boolean} props.isActive - Whether this timeline is currently selected
- * @param {Function} props.onClick - Handler when timeline is selected
- * 
- * @example
- * <TimelineItem
- *   startDate={timelineData}
- *   isActive={currentDate === timelineData.date}
- *   onClick={() => handleSelect(timelineData)}
- * />
- */
 const TimelineItem = memo(function TimelineItem({
   startDate,
   isActive,
   onClick,
+  disabled = false,
 }) {
-  /**
-   * Handles both click and keyboard activation (Enter/Space)
-   * @param {KeyboardEvent} e - Keyboard event
-   */
   const handleKeyDown = (e) => {
+    if (disabled) return
+    
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
       onClick()
     }
   }
 
+  const handleClick = () => {
+    if (disabled) return
+    onClick()
+  }
+
   return (
     <div className="timeline-item">
       <div
-        className={`circle ${isActive ? 'active' : ''}`}
-        onClick={onClick}
+        className={`circle ${isActive ? 'active' : ''} ${disabled ? 'disabled' : ''}`}
+        onClick={handleClick}
         onKeyDown={handleKeyDown}
         role="button"
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
         aria-label={`Select ${startDate.name} - ${startDate.date}`}
         aria-pressed={isActive}
+        aria-disabled={disabled}
       >
         <Tooltip text={startDate.tooltip} position="bottom" />
       </div>
@@ -68,6 +50,7 @@ TimelineItem.propTypes = {
   }).isRequired,
   isActive: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
 }
 
 export default TimelineItem

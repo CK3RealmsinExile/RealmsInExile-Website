@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import startDatesData from '@data/startDates.json'
 import charactersData from '@data/characters.json'
 import { useUrlState } from '@hooks/useUrlState'
+import { useLoading, LOADING_TYPES } from '@context/LoadingContext'
 import { URL_PARAMS } from '@utils/constants'
 
 /**
@@ -19,6 +20,7 @@ const AppContext = createContext(null)
  */
 export function AppProvider({ children }) {
   const { getUrlParam, setUrlParams, clearUrlParams } = useUrlState()
+  const { setLoading } = useLoading()
 
   // Initialize state from URL if available, otherwise use defaults
   const initialTimeline = (() => {
@@ -35,11 +37,32 @@ export function AppProvider({ children }) {
   const [startDate, setStartDate] = useState(initialTimeline.date)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [selectedCharacter, setSelectedCharacter] = useState(null)
-  
-  // Deep clone to preserve all positions
   const [characters, setCharacters] = useState(() =>
     JSON.parse(JSON.stringify(charactersData))
   )
+  
+  /**
+   * Enhanced timeline setter with loading state
+   * Shows brief loading transition when switching timelines
+   * 
+   * @param {string} newDate - New timeline date
+   */
+  const setStartDateWithLoading = (newDate) => {
+    if (newDate === startDate) return // No change
+
+    // Set loading state
+    setLoading(LOADING_TYPES.TIMELINE, true)
+
+    // Small delay for smooth transition
+    setTimeout(() => {
+      setStartDate(newDate)
+      
+      // Clear loading after transition
+      setTimeout(() => {
+        setLoading(LOADING_TYPES.TIMELINE, false)
+      }, 150) // Short delay for fade effect
+    }, 50)
+  }
 
   /**
    * Effect: Initialize character from URL
@@ -132,23 +155,73 @@ export function AppProvider({ children }) {
     setSelectedCharacter,
   ])
 
+  /**
+   * Effect: Sync timeline changes to URL
+   */
+  useEffect(() => {
+    setUrlParams({ [URL_PARAMS.TIMELINE]: startDate })
+  }, [startDate, setUrlParams])
+
+  /**
+   * Effect: Sync character selection to URL
+   */
+  useEffect(() => {
+    if (selectedCharacter) {
+      setUrlParams({ [URL_PARAMS.CHARACTER]: selectedCharacter.id })
+    } else {
+      clearUrlParams(URL_PARAMS.CHARACTER)
+    }
+  }, [selectedCharacter, setUrlParams, clearUrlParams])
+
+  /**
+   * Effect: Handle browser back/forward navigation
+   */
+  useEffect(() => {
+    const handlePopState = () => {
+      const urlTimeline = getUrlParam(URL_PARAMS.TIMELINE)
+      const urlCharacterId = getUrlParam(URL_PARAMS.CHARACTER)
+
+      if (urlTimeline) {
+        const timeline = startDatesData.find((t) => t.date === urlTimeline)
+        if (timeline && timeline.date !== startDate) {
+          setStartDateWithLoading(timeline.date)  // ← Use loading version
+          setStartName(timeline.name)
+        }
+      }
+
+      if (urlCharacterId) {
+        const character = characters.find((c) => c.id === urlCharacterId)
+        if (character && character.id !== selectedCharacter?.id) {
+          setSelectedCharacter(character)
+          setSidebarOpen(true)
+        }
+      } else if (selectedCharacter) {
+        setSelectedCharacter(null)
+      }
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [
+    getUrlParam,
+    startDate,
+    selectedCharacter,
+    characters,
+    setStartName,
+  ])
+
   // Memoize context value to prevent unnecessary re-renders
   const value = useMemo(
     () => ({
-      // Timeline state
       startName,
       setStartName,
       startDate,
-      setStartDate,
+      setStartDate: setStartDateWithLoading,
       startDatesData,
-
-      // Sidebar state
       sidebarOpen,
       setSidebarOpen,
       selectedCharacter,
       setSelectedCharacter,
-
-      // Character data
       characters,
       setCharacters,
     }),

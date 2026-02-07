@@ -155,3 +155,79 @@
     display: none;
   }
 }
+
+/**
+ * Map Loading States
+ */
+
+/* Skeleton placeholder while map loads */
+.map-skeleton {
+  /* Match expected map dimensions */
+  min-height: 80vh;
+  width: 100%;
+  
+  /* Center spinner */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Visual */
+  background: linear-gradient(
+    90deg,
+    rgba(50, 50, 50, 0.2) 0%,
+    rgba(70, 70, 70, 0.3) 50%,
+    rgba(50, 50, 50, 0.2) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  
+  /* Border for definition */
+  border: 1px solid rgba(184, 134, 11, 0.2);
+  border-radius: var(--radius-md, 8px);
+}
+
+/* Shimmer animation for skeleton */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Map wrapper loading state */
+.map-wrapper--loading {
+  /* Hide while loading to prevent flash */
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Fade in when loaded */
+.map-wrapper:not(.map-wrapper--loading) {
+  animation: fadeInMap 0.4s ease-in;
+}
+
+@keyframes fadeInMap {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .map-skeleton {
+    animation: none;
+    background: rgba(60, 60, 60, 0.3);
+  }
+  
+  .map-wrapper:not(.map-wrapper--loading) {
+    animation: none;
+    opacity: 1;
+  }
+}

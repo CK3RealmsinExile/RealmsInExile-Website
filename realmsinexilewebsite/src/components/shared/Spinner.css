@@ -1,0 +1,72 @@
+/**
+ * Spinner Component Styles
+ * Animated loading indicator
+ */
+
+.spinner-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  /* Base circle */
+  border-radius: 50%;
+  border-style: solid;
+  
+  /* Transparent base with colored top for spin effect */
+  border-color: rgba(184, 134, 11, 0.2);
+  border-top-color: var(--color-gold, #b8860b);
+  
+  /* Animation */
+  animation: spin 0.8s linear infinite;
+}
+
+/* Size variants */
+.spinner--small {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.spinner--medium {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+.spinner--large {
+  width: 60px;
+  height: 60px;
+  border-width: 4px;
+}
+
+/* Spin animation (defined in global styles but repeated for isolation) */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * Respect reduced motion preference
+ * Replace spin with pulse for users who prefer reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: pulse 2s ease-in-out infinite;
+    border-top-color: var(--color-gold, #b8860b);
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}

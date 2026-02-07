@@ -193,3 +193,40 @@
     display: none;
   }
 }
+
+/**
+ * Timeline Loading States
+ */
+
+/* Disabled state for timeline items during transition */
+.circle.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Loading indicator on timeline */
+.timeline-nav__loading {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  padding: 6px 12px;
+  background-color: rgba(184, 134, 11, 0.9);
+  border-radius: var(--radius-md, 8px);
+  
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-white, #fff);
+  
+  animation: fadeIn 0.2s ease-in;
+  z-index: 100;
+}
+
+@media (max-width: 600px) {
+  .timeline-nav__loading {
+    bottom: 5px;
+    font-size: 0.7rem;
+  }
+}

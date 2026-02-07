@@ -1,12 +1,22 @@
 import { useRef, useState, useCallback } from 'react'
 import { useAppContext } from '@context/AppContext'
 import { useCharacterDrag } from '@hooks/useCharacterDrag'
+import { useLoading, LOADING_TYPES } from '@context/LoadingContext'  // ← Add
 import CharacterPin from './CharacterPin'
+import { Spinner } from '@components/shared'  // ← Add
 import './Map.css'
 
+/**
+ * Map container component
+ * Displays map image with draggable character pins
+ * Includes loading state for map image
+ * 
+ * @component
+ */
 function MapContainer() {
   const mapImageRef = useRef(null)
   const [hoveredCharId, setHoveredCharId] = useState(null)
+  const { isLoading, setLoading } = useLoading()  // ← Add
   
   const {
     startDate,
@@ -15,6 +25,22 @@ function MapContainer() {
     setSelectedCharacter,
     setSidebarOpen,
   } = useAppContext()
+
+  /**
+   * Handles map image load completion
+   * Clears loading state when image is fully loaded
+   */
+  const handleImageLoad = useCallback(() => {
+    setLoading(LOADING_TYPES.MAP_IMAGE, false)
+  }, [setLoading])
+
+  /**
+   * Handles map image load start
+   * Sets loading state when image begins loading
+   */
+  const handleImageLoadStart = useCallback(() => {
+    setLoading(LOADING_TYPES.MAP_IMAGE, true)
+  }, [setLoading])
 
   const handlePositionChange = useCallback(
     (charId, newPosition) => {
@@ -36,7 +62,6 @@ function MapContainer() {
     [startDate, setCharacters]
   )
 
-  // Pass the IMAGE ref, not the container ref
   const { draggingCharId, startDrag, isDragging } = useCharacterDrag(
     mapImageRef.current,
     handlePositionChange
@@ -54,15 +79,33 @@ function MapContainer() {
     char.startDates.includes(startDate)
   )
 
+  const isMapLoading = isLoading(LOADING_TYPES.MAP_IMAGE)
+
   return (
     <div className="map-container">
-      {/* Wrapper for positioning context */}
-      <div className="map-wrapper" style={{ position: 'relative', display: 'inline-block' }}>
-        <img 
-          ref={mapImageRef}  // ← Ref on the image
-          src="/assets/map.webp" 
-          alt="Realms in Exile Map" 
+      {/* Loading skeleton - shows while map loads */}
+      {isMapLoading && (
+        <div className="map-skeleton" aria-label="Loading map">
+          <Spinner size="large" label="Loading map..." />
+        </div>
+      )}
+
+      {/* Map wrapper - hidden until loaded to prevent layout shift */}
+      <div 
+        className={`map-wrapper ${isMapLoading ? 'map-wrapper--loading' : ''}`}
+        style={{ position: 'relative', display: 'inline-block' }}
+      >
+        <img
+          ref={mapImageRef}
+          src="/assets/map.webp"
+          alt="Realms in Exile Map"
           draggable={false}
+          onLoadStart={handleImageLoadStart}  // ← Add
+          onLoad={handleImageLoad}             // ← Add
+          onError={() => {                     // ← Add error handling
+            setLoading(LOADING_TYPES.MAP_IMAGE, false)
+            console.error('Failed to load map image')
+          }}
         />
 
         {/* Character pins positioned relative to image */}

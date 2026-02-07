@@ -1,0 +1,116 @@
+/**
+ * Loading Overlay Component Styles
+ * Full-screen or positioned loading indicator with backdrop
+ */
+
+.loading-overlay {
+  /* Positioning */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Visual */
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  
+  /* Stacking */
+  z-index: 10000;
+  
+  /* Animation */
+  animation: fadeIn 0.2s ease-in;
+}
+
+/* Position variants */
+.loading-overlay--fixed {
+  position: fixed;
+}
+
+.loading-overlay--absolute {
+  position: absolute;
+}
+
+/* Transparent variant (no backdrop) */
+.loading-overlay--transparent {
+  background-color: transparent;
+  backdrop-filter: none;
+}
+
+/* Content container */
+.loading-overlay__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md, 16px);
+  
+  /* Visual */
+  padding: var(--spacing-xl, 32px);
+  background-color: var(--color-grey-bg, grey);
+  border-radius: var(--radius-lg, 12px);
+  box-shadow: var(--shadow-xl);
+  
+  /* Animation */
+  animation: slideInBottom 0.3s ease-out;
+}
+
+/* Loading message */
+.loading-overlay__message {
+  margin: 0;
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: 500;
+  color: var(--color-text, #fff);
+  text-align: center;
+  max-width: 300px;
+}
+
+/**
+ * Animations
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Responsive
+ */
+@media (max-width: 600px) {
+  .loading-overlay__content {
+    padding: var(--spacing-lg, 24px);
+  }
+  
+  .loading-overlay__message {
+    font-size: var(--font-size-base, 1rem);
+    max-width: 250px;
+  }
+}
+
+/**
+ * Reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .loading-overlay,
+  .loading-overlay__content {
+    animation: none;
+  }
+}
