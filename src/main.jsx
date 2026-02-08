@@ -4,7 +4,7 @@ import App from '@/pages/App'
 import { AppProvider } from '@context/AppContext'
 import { EditModeProvider } from '@context/EditModeContext'
 import { LoadingProvider } from '@context/LoadingContext'
-import { SearchProvider } from '@context/SearchContext'  // ← Add
+import { SearchProvider } from '@context/SearchContext'
 import '@styles/variables.css'
 import '@styles/reset.css'
 import '@styles/index.css'

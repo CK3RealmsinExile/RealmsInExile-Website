@@ -15,7 +15,7 @@ const CharacterPin = memo(function CharacterPin({
   position,
   isDragging,
   isHovered,
-  isFiltered,  // ← New prop for search filter
+  isFiltered,
   onDragStart,
   onClick,
   onMouseEnter,

@@ -206,7 +206,6 @@ function CharacterSearch() {
           </button>
         )}
 
-        {/* ← Add filtering badge */}
         {filteredCharacter && (
           <span className="character-search__badge" aria-label="Currently filtering">
             Active

@@ -22,7 +22,7 @@ export function EditModeProvider({ children }) {
   
   // Initialize from localStorage, default to false (view mode)
   const [isEditMode, setIsEditMode] = useState(() => {
-    if (!canEdit) return false  // ← Add this line
+    if (!canEdit) return false
     const saved = localStorage.getItem('realmsinexile_editmode')
     return saved === 'true'
   })

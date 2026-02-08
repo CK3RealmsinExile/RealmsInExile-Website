@@ -92,7 +92,7 @@ function MapContainer() {
       >
         <img
           ref={mapImageRef}
-          src="./public/assets/map.webp"
+          src="./assets/map.webp"
           alt="Realms in Exile Map"
           draggable={false}
           onLoadStart={handleImageLoadStart}

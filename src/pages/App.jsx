@@ -1,7 +1,7 @@
 import { TimelineNav } from '@components/Timeline'
 import { MapContainer } from '@components/Map'
 import { Sidebar } from '@components/Sidebar'
-import { EditModeToggle, CharacterSearch } from '@components/shared'  // ← Update
+import { EditModeToggle, CharacterSearch } from '@components/shared'
 import '@styles/App.css'
 
 /**

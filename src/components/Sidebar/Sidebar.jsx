@@ -1,5 +1,5 @@
 import { useAppContext } from '@context/AppContext'
-import { useEditMode } from '@context/EditModeContext'  // ← Add this
+import { useEditMode } from '@context/EditModeContext'
 import { exportCharacterData } from '@utils/exportHelpers'
 import { Button } from '@components/shared'
 import CharacterDetails from './CharacterDetails'
@@ -16,7 +16,7 @@ function Sidebar() {
     characters,
   } = useAppContext()
   
-  const { isEditMode } = useEditMode()  // ← Add this
+  const { isEditMode } = useEditMode()
 
   const handleClose = () => {
     setSidebarOpen(false)

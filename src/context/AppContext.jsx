@@ -184,7 +184,7 @@ export function AppProvider({ children }) {
       if (urlTimeline) {
         const timeline = startDatesData.find((t) => t.date === urlTimeline)
         if (timeline && timeline.date !== startDate) {
-          setStartDateWithLoading(timeline.date)  // ← Use loading version
+          setStartDateWithLoading(timeline.date)
           setStartName(timeline.name)
         }
       }
