@@ -1,11 +1,7 @@
 import { TimelineNav } from '@components/Timeline'
 import { MapContainer } from '@components/Map'
 import { Sidebar } from '@components/Sidebar'
-import { 
-  EditModeToggle, 
-  CharacterSearch, 
-  FloatingControls
-} from '@components/shared'
+import { EditModeToggle, CharacterSearch } from '@components/shared'
 import '@styles/App.css'
 
 /**
@@ -19,7 +15,6 @@ function App() {
       <CharacterSearch />
       <MapContainer />
       <Sidebar />
-      <FloatingControls />
     </div>
   )
 }

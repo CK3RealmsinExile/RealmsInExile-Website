@@ -119,12 +119,3 @@
     padding: 6px 10px;
   }
 }
-
-/**
- * Desktop only - hide on mobile (use FAB instead)
- */
-@media (max-width: 768px) {
-  .edit-mode-toggle {
-    display: none;
-  }
-}
