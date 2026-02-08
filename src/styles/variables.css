@@ -140,6 +140,41 @@
   --btn-font-large: 1.125rem;
   --btn-radius: 8px;
   --btn-transition: 0.2s;
+
+  /**
+ * Mobile-Specific Variables
+ * Optimized sizing and spacing for touch devices
+ */
+
+/* Mobile Timeline */
+--timeline-mobile-height: 70px;
+--timeline-mobile-circle-size: 32px; /* Larger for touch */
+--timeline-mobile-padding: 10px;
+
+/* Mobile Touch Targets (Minimum 44px per Apple/Google guidelines) */
+--touch-target-min: 44px;
+
+/* Mobile Sidebar */
+--sidebar-mobile-height: 60vh; /* Bottom sheet height */
+--sidebar-mobile-peek: 60px; /* Visible tab when closed */
+
+/* Mobile Spacing */
+--mobile-spacing-xs: 4px;
+--mobile-spacing-sm: 8px;
+--mobile-spacing-md: 12px;
+--mobile-spacing-lg: 16px;
+--mobile-spacing-xl: 24px;
+
+/* Mobile Typography */
+--mobile-font-size-xs: 0.7rem;
+--mobile-font-size-sm: 0.8rem;
+--mobile-font-size-base: 0.9rem;
+--mobile-font-size-lg: 1rem;
+
+/* Mobile Z-Index (Higher for mobile UI elements) */
+--z-mobile-fab: 3500;
+--z-mobile-modal: 4000;
+--z-mobile-bottom-sheet: 3800;
 }
 
 /**

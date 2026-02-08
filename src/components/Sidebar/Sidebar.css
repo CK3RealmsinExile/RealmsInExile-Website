@@ -1,159 +1,119 @@
 /**
  * Sidebar Component Styles
- * Slide-in panel for displaying contextual information
+ * Desktop: Slide-in panel from right
+ * Mobile: Bottom sheet modal
  */
 
 /* Main sidebar container */
 .sidebar {
-  /* Positioning - fixed to viewport */
   position: fixed;
-  top: var(--timeline-height, 89px); /* Below timeline nav */
-  right: var(--sidebar-hidden-offset, -390px); /* Hidden off-screen by default */
-  
-  /* Dimensions */
+  top: var(--timeline-height, 89px);
+  right: var(--sidebar-hidden-offset, -390px);
   width: var(--sidebar-width, 350px);
   height: calc(100vh - var(--timeline-height, 89px));
-  
-  /* Visual */
   background-color: var(--color-grey-bg, grey);
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
-  
-  /* Layout */
   display: flex;
   flex-direction: column;
   padding: var(--sidebar-padding, 20px);
-  
-  /* Scrolling */
   overflow-y: auto;
   overflow-x: hidden;
-  
-  /* Animation */
   transition: right var(--animation-sidebar, 0.3s) ease;
-  
-  /* Stacking */
   z-index: var(--z-sidebar, 2000);
 }
 
-/* Open state - slide in from right */
 .sidebar--open {
   right: 0;
 }
 
-/* Sidebar close button */
 .sidebar__close-btn {
-  /* Positioning - top-right corner */
   position: absolute;
   top: 10px;
   right: 10px;
-  
-  /* Visual */
   font-size: 1.5rem;
-  
-  /* Stacking */
   z-index: var(--z-sidebar-close, 2100);
 }
 
-/* Sidebar content area */
 .sidebar__content {
-  /* Layout */
-  flex: 1; /* Take up remaining space */
+  flex: 1;
   overflow-y: auto;
-  
-  /* Spacing */
-  margin-top: 40px; /* Account for close button */
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
-/* Sidebar footer */
 .sidebar__footer {
-  /* Layout */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 15px;
-  
-  /* Center buttons */
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-/* Sidebar toggle button (peek from right edge) */
+/* Sidebar toggle button */
 .sidebar-toggle {
-  /* Positioning - fixed to viewport */
   position: fixed;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  
-  /* Visual */
   background-color: var(--color-gold, #b8860b);
   color: var(--color-white, #fff);
-  border-radius: 4px 0 0 4px; /* Rounded left side only */
+  border-radius: 4px 0 0 4px;
   padding: 12px;
   box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
-  
-  /* Animation */
   transition: right var(--animation-sidebar, 0.3s) ease,
               background-color 0.2s ease;
-  
-  /* Stacking */
   z-index: var(--z-sidebar-toggle, 1500);
 }
 
-/* Toggle button hover state */
 .sidebar-toggle:hover {
   background-color: var(--color-gold-dark, #a57c08);
 }
 
-/* Hide toggle when sidebar is open */
 .sidebar-toggle--hidden {
-  right: -60px; /* Slide off-screen */
+  right: -60px;
 }
 
-/**
- * Character Details Styles
- */
-.character-details {
-  /* Layout */
+/* Character/Timeline Details Styles */
+.character-details,
+.timeline-details {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.character-details__header {
-  /* Border */
+.character-details__header,
+.timeline-details__header {
   border-bottom: 2px solid var(--color-gold, #b8860b);
   padding-bottom: 15px;
 }
 
-.character-details__name {
-  /* Typography */
+.character-details__name,
+.timeline-details__name {
   margin: 0 0 10px 0;
   font-size: 1.75rem;
   color: var(--color-gold, #b8860b);
 }
 
 .character-details__image {
-  /* Sizing */
   width: 100%;
   max-width: 200px;
   height: auto;
-  
-  /* Visual */
   border-radius: 8px;
   border: 2px solid var(--color-gold, #b8860b);
 }
 
-.character-details__content {
-  /* Spacing */
+.character-details__content,
+.timeline-details__content {
   line-height: 1.6;
 }
 
-.character-details__paragraph {
-  /* Spacing */
+.character-details__paragraph,
+.timeline-details__paragraph {
   margin-bottom: 1em;
 }
 
-.character-details__paragraph:last-child {
+.character-details__paragraph:last-child,
+.timeline-details__paragraph:last-child {
   margin-bottom: 0;
 }
 
@@ -205,11 +165,6 @@
 }
 
 .timeline-details__header {
-  /* Border */
-  border-bottom: 2px solid var(--color-gold, #b8860b);
-  padding-bottom: 15px;
-  
-  /* Layout */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -218,15 +173,10 @@
 }
 
 .timeline-details__name {
-  /* Typography */
-  margin: 0;
-  font-size: 1.75rem;
-  color: var(--color-gold, #b8860b);
   flex: 1;
 }
 
 .timeline-details__date {
-  /* Visual */
   background-color: rgba(184, 134, 11, 0.2);
   padding: 6px 12px;
   border-radius: 6px;
@@ -235,7 +185,6 @@
   border: 1px solid var(--color-gold, #b8860b);
 }
 
-/* Date badge variants */
 .timeline-details__date--major {
   background-color: rgba(184, 134, 11, 0.4);
 }
@@ -250,11 +199,11 @@
 }
 
 .timeline-details__description {
-  /* Typography */
   font-size: 1rem;
   margin-bottom: 1em;
   font-weight: 500;
 }
+
 
 .timeline-details__extra {
   /* Spacing */
@@ -292,7 +241,6 @@
  */
 .character-details--empty,
 .timeline-details--empty {
-  /* Layout */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -300,55 +248,137 @@
 }
 
 .empty-state {
-  /* Typography */
   color: rgba(255, 255, 255, 0.5);
   font-style: italic;
   text-align: center;
 }
 
 /**
- * Responsive Design
- * Mobile: Full-width sidebar, slide from bottom
+ * Mobile: Bottom Sheet Design
+ * Slides up from bottom instead of right
  */
 @media (max-width: 768px) {
   .sidebar {
-    /* Positioning - slide from bottom instead */
+    /* Position at bottom */
     top: auto;
-    bottom: -100vh; /* Hidden below viewport */
-    right: 0;
+    bottom: calc(-1 * var(--sidebar-mobile-height, 60vh));
     left: 0;
+    right: 0;
     
-    /* Dimensions */
+    /* Full width */
     width: 100%;
-    height: 70vh;
-    max-height: 70vh;
+    height: var(--sidebar-mobile-height, 60vh);
+    max-height: var(--sidebar-mobile-height, 60vh);
     
-    /* Animation */
+    /* Rounded top corners */
+    border-radius: 20px 20px 0 0;
+    
+    /* Better shadow for bottom sheet */
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+    
+    /* Slide up animation */
     transition: bottom var(--animation-sidebar, 0.3s) ease;
+    
+    /* Padding */
+    padding: var(--mobile-spacing-lg, 16px);
   }
   
   .sidebar--open {
     bottom: 0;
+    right: 0; /* Override desktop right: 0 */
   }
   
+  /* Handle bar for bottom sheet */
+  .sidebar::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+  }
+  
+  .sidebar__close-btn {
+    top: 8px;
+    right: 8px;
+    font-size: 1.2rem;
+  }
+  
+  .sidebar__content {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  /* Toggle button becomes floating action button */
   .sidebar-toggle {
-    /* Reposition for mobile */
+    /* Bottom right corner */
     top: auto;
     bottom: 20px;
     right: 20px;
+    left: auto;
     transform: none;
+    
+    /* Circular FAB */
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
     padding: 0;
+    
+    /* Center icon */
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    /* Larger icon */
+    font-size: 1.5rem;
+    
+    /* Better shadow for FAB */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   }
   
   .sidebar-toggle--hidden {
-    right: -60px;
+    right: -70px;
     bottom: 20px;
+  }
+  
+  /* Smaller typography on mobile */
+  .character-details__name,
+  .timeline-details__name {
+    font-size: 1.5rem;
+  }
+  
+  .timeline-details__date {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}
+
+/**
+ * Small Mobile
+ */
+@media (max-width: 600px) {
+  .sidebar {
+    height: 70vh;
+    max-height: 70vh;
+    bottom: -70vh;
+  }
+  
+  .character-details__name,
+  .timeline-details__name {
+    font-size: 1.25rem;
+  }
+}
+
+/**
+ * Reduced Motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebar-toggle {
+    transition: none;
   }
 }
 

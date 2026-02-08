@@ -28,253 +28,130 @@
   /* Overflow handling */
   overflow-x: auto;
   overflow-y: hidden;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-/* Continuous connecting line (pseudo-element) */
+.timeline-nav::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Continuous connecting line */
 .timeline-nav::before {
   content: '';
   position: absolute;
-  
-  /* Center vertically */
   top: 50%;
   transform: translateY(-50%);
-  
-  /* Span full width minus padding */
   left: 20px;
   right: 20px;
-  
-  /* Visual */
   height: var(--timeline-line-height, 4px);
   background-color: var(--color-gold, #b8860b);
-  
-  /* Stack behind circles */
   z-index: 1;
+  pointer-events: none;
 }
 
 /* Individual timeline item wrapper */
 .timeline-item {
-  /* Positioning context for absolute children */
   position: relative;
-  
-  /* Layout */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  /* Distribute items evenly across timeline */
   flex: 1;
-  
-  /* Minimum spacing between items */
   min-width: 80px;
-  
-  /* Stack above line */
   z-index: 10;
 }
 
-/* Circle marker for each date */
+/* Circle marker */
 .circle {
-  /* Dimensions */
   width: var(--timeline-circle-size, 24px);
   height: var(--timeline-circle-size, 24px);
-  
-  /* Visual */
   background-color: var(--color-white, #fff);
   border: var(--timeline-circle-border, 2px) solid var(--color-gold, #b8860b);
   border-radius: 50%;
-  
-  /* Positioning */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
-  /* Interaction */
   cursor: pointer;
-  
-  /* Stacking */
   z-index: 10;
-  
-  /* Animation */
   transition: all 0.2s ease;
 }
 
-/* Hover state */
 .circle:hover {
   transform: translate(-50%, -50%) scale(1.1);
   box-shadow: 0 0 10px rgba(184, 134, 11, 0.5);
 }
 
-/* Active/selected state */
 .circle.active {
-  /* Glowing effect */
   box-shadow: 0 0 20px 14px rgba(184, 134, 11, 0.8);
   background-color: var(--color-gold, #b8860b);
   border-color: var(--color-white, #fff);
 }
 
-/* Focus state for keyboard navigation */
 .circle:focus-visible {
   outline: 3px solid var(--color-gold, #b8860b);
   outline-offset: 4px;
 }
 
-/* Date label below circle */
+/* Date label */
 .date-label {
-  /* Spacing */
-  margin-top: 50px; /* Account for circle + tooltip */
-  
-  /* Typography */
+  margin-top: 50px;
   font-size: 0.8rem;
   text-align: center;
   color: var(--color-text, #fff);
-  
-  /* Prevent text selection */
   user-select: none;
 }
 
-/**
- * Responsive Design
- * Mobile devices: Stack vertically with reduced sizing
- */
-@media (max-width: 600px) {
-  .timeline-nav {
-    /* Vertical layout */
-    flex-direction: column;
-    height: auto;
-    padding: 10px;
-    gap: 12px;
-    
-    /* Allow vertical scrolling */
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  
-  /* Hide horizontal line on mobile */
-  .timeline-nav::before {
-    display: none;
-  }
-  
-  .timeline-item {
-    /* Remove flex distribution */
-    flex: none;
-    margin-bottom: 12px;
-    min-width: 100%;
-  }
-  
-  .circle {
-    /* Smaller size for mobile */
-    width: 20px;
-    height: 20px;
-    position: static;
-    transform: none;
-  }
-  
-  .circle:hover {
-    transform: scale(1.1);
-  }
-  
-  .circle.active {
-    transform: none;
-  }
-  
-  .date-label {
-    font-size: 0.7rem;
-    margin-top: 8px;
-  }
-}
-
-/**
- * Print styles
- * Hide timeline navigation when printing
- */
-@media print {
-  .timeline-nav {
-    display: none;
-  }
-}
-
-/**
- * Timeline Loading States
- */
-
-/* Disabled state for timeline items during transition */
+/* Disabled state */
 .circle.disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-/* Loading indicator on timeline */
+/* Loading indicator */
 .timeline-nav__loading {
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  
   padding: 6px 12px;
   background-color: rgba(184, 134, 11, 0.9);
   border-radius: var(--radius-md, 8px);
-  
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--color-white, #fff);
-  
   animation: fadeIn 0.2s ease-in;
   z-index: 100;
 }
 
-@media (max-width: 600px) {
-  .timeline-nav__loading {
-    bottom: 5px;
-    font-size: 0.7rem;
-  }
-}
-
-/**
- * Highlighted Timeline State (from character search)
- * Indicates timeline dates where searched character appears
- */
-
-/* Enhanced highlighting - more visible */
+/* Highlighted state */
 .circle.highlighted {
-  /* Add background glow */
   background-color: rgba(184, 134, 11, 0.3);
-  
-  /* Thicker border */
   border-width: 4px;
   border-color: var(--color-gold, #b8860b);
-  
-  /* Stronger shadow */
   box-shadow: 0 0 15px 5px rgba(184, 134, 11, 0.6);
-  
-  /* Ensure it's on top */
   z-index: 15;
 }
 
-/* Pulsing ring for highlighted circles */
 .circle.highlighted::after {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
-  /* Ring size (larger than circle) */
   width: 40px;
   height: 40px;
-  
-  /* Visual */
   border: 3px solid var(--color-gold, #b8860b);
   border-radius: 50%;
-  
-  /* Pulsing animation */
   animation: pulseRing 2s ease-in-out infinite;
-  
-  /* Behind circle but above line */
   z-index: 5;
-  
-  /* Pointer events pass through */
   pointer-events: none;
 }
 
@@ -293,44 +170,124 @@
   }
 }
 
-/* Active AND highlighted - strongest visual */
 .circle.active.highlighted {
-  /* Even stronger glow when both active and highlighted */
   box-shadow: 0 0 25px 15px rgba(184, 134, 11, 0.9);
   background-color: var(--color-gold, #b8860b);
   border-color: var(--color-white, #fff);
 }
 
-/* Hover state for highlighted circles */
 .circle.highlighted:hover {
   transform: translate(-50%, -50%) scale(1.2);
   box-shadow: 0 0 20px 8px rgba(184, 134, 11, 0.8);
 }
 
-/* Non-highlighted circles when filtering is active */
-/* Make them slightly dimmed to emphasize highlighted ones */
 .timeline-nav[data-filtering="true"] .circle:not(.highlighted) {
   opacity: 0.5;
   filter: grayscale(0.3);
 }
 
 /**
- * Reduced motion - static highlight instead of pulse
+ * Mobile/Tablet Responsive Design
+ * Horizontal scrollable timeline with larger touch targets
  */
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 1024px) {
+  .timeline-nav {
+    height: var(--timeline-mobile-height, 70px);
+    padding: 0 var(--mobile-spacing-md, 12px);
+    
+    /* Enable horizontal scroll */
+    justify-content: flex-start;
+    gap: 20px; /* Space between items */
+    
+    /* Snap scrolling for better UX */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  
+  /* Line adjusts for scrollable area */
+  .timeline-nav::before {
+    left: var(--mobile-spacing-md, 12px);
+    right: var(--mobile-spacing-md, 12px);
+    /* Make line span entire scrollable width */
+    width: calc(var(--timeline-count, 15) * 100px);
+  }
+  
+  .timeline-item {
+    /* Fixed width for horizontal scroll */
+    flex: 0 0 auto;
+    min-width: 80px;
+    
+    /* Snap to center */
+    scroll-snap-align: center;
+  }
+  
+  /* Larger touch targets for mobile */
+  .circle {
+    width: var(--timeline-mobile-circle-size, 32px);
+    height: var(--timeline-mobile-circle-size, 32px);
+    border-width: 3px;
+    
+    /* Easier to tap */
+    padding: 8px; /* Invisible tap area */
+  }
+  
+  .date-label {
+    font-size: var(--mobile-font-size-sm, 0.8rem);
+    margin-top: 45px;
+  }
+  
+  /* Highlighted ring on mobile */
   .circle.highlighted::after {
-    animation: none;
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.2);
+    width: 48px;
+    height: 48px;
   }
 }
 
 /**
- * Mobile adjustments
+ * Small Mobile Devices
  */
 @media (max-width: 600px) {
+  .timeline-nav {
+    height: 60px;
+    padding: 0 8px;
+    gap: 16px;
+  }
+  
+  .timeline-item {
+    min-width: 70px;
+  }
+  
+  .circle {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .date-label {
+    font-size: 0.7rem;
+    margin-top: 40px;
+  }
+  
+  .timeline-nav__loading {
+    font-size: 0.7rem;
+    bottom: 5px;
+  }
+}
+
+/**
+ * Reduced Motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-nav {
+    scroll-behavior: auto;
+  }
+  
+  .circle {
+    transition: none;
+  }
+  
   .circle.highlighted::after {
-    width: 32px;
-    height: 32px;
+    animation: none;
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
   }
 }
