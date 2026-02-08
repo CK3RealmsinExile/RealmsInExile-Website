@@ -2,12 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Interactive timeline map for Realms in Exile - Explore Middle-earth's history" />
-    <meta name="theme-color" content="#242424" />
     
+    <!-- Mobile viewport configuration -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    
+    <!-- PWA Meta Tags for Mobile -->
+    <meta name="theme-color" content="#242424" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- SEO -->
+    <meta name="description" content="Interactive timeline map for Realms in Exile - Explore Middle-earth's history" />
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/webp" href="/assets/one_ring.webp" />
-    <link rel="preload" href="./assets/map.webp" as="image" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/assets/map.webp" as="image" />
     
     <title>Realms in Exile - Interactive Timeline</title>
   </head>

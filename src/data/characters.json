@@ -89,8 +89,8 @@
         "y": 0.1901
       },
       "T.A. 3000": {
-        "x": 0.4503,
-        "y": 0.1901
+        "x": 0.4433,
+        "y": 0.1799
       },
       "Fo.A. 120": {
         "x": 0.4503,
@@ -1665,6 +1665,356 @@
       "T.A. 3000": {
         "x": 0.3922,
         "y": 0.9144
+      }
+    }
+  },
+  {
+    "id": "char_055",
+    "name": "Realm-Master Hawin",
+    "faction": "neutral",
+    "description": [
+      "For many generations, the house of Koldana has dominated the election for the position of Realm-Master, ever since the days of Bladorthin. Hawin has proven himself an able Realm-Master in these troubled times, his silver tongue carefully balancing the ever growing tensions both abroad and at home. The long empowered Winelord nobility and ascendant Great Merchant families increasingly turn on each other, and the house of Koldana, firstmost of the Dorwinrim Winelords, is the obvious target of such ire.",
+      "For now, however, Dorwinion remained united, with such disagreements civil and behind closed doors. But if something is not done soon, to either crush one of the factions or alleviate their complaints, the realm may suffer irreperable harm."
+    ],
+    "image": "/assets/characters/realm-master-hawin.png",
+    "metadata": {
+      "titles": [
+        "King of Dorwinion"
+      ]
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.5869,
+        "y": 0.2262
+      }
+    }
+  },
+  {
+    "id": "char_056",
+    "name": "King Bain",
+    "faction": "good",
+    "description": [
+      "Bain, son of Bard Dragonslayer, is the second king of [dale|E]. His reign has seen the continued expansion of his father's kingdom, with judicious marriages and diplomacy bringing the Northmen of the lower Celduin under the banner of the Bowmen. Bain now grows old, but his son Brand is well grown and ready for the kinship when he should pass.",
+      "Dale is strong, and surrounded by their friends in Dorwinion, Erebor, and Eryn Lasgalen. But to the south, Medlóshûkain's fiery new Lôke-Kân threatens to march north and unmake the hard-won prosperity of the dalemen. Perhaps the time will soon come when the heirs of Bard are named Dragonslayers once more..."
+    ],
+    "image": "/assets/characters/king-bain.png",
+    "metadata": {
+      "titles": [
+        "King of Dale"
+      ]
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.5302,
+        "y": 0.1728
+      }
+    }
+  },
+  {
+    "id": "char_057",
+    "name": "Chieftain Hûz-Margôz",
+    "faction": "good",
+    "description": [
+      "The current Lôke-Kân of Medlóshûkain is a fierce and ambitious zealot. Since his election to the position of Lôke-Kân ten years ago, Zhamîk's westward campaigns have seen much of the western plains of Rhovanion brought under Easterling control. He now turns all the might of his realm to preparing a great host, awaiting the day his lord and god, Sauron, bids him to march forth.",
+      "But not every member of the Golden Realm is so devoted to the Dark Lord. Hûz-Margôz, the last scion of the ancient and feared house of Szrel, bides his time, waiting to challenge the Lôke-Kân's son for leadership of the realm and finally rekindle the dreaded legacy of his ancestors.",
+      "Shall Zhamîk's vision come to pass, or might the Easterlings turn from the Shadow?"
+    ],
+    "image": "/assets/characters/huz-margoz.png",
+    "metadata": {
+      "titles": [
+        "King of Rhun"
+      ]
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.5869,
+        "y": 0.2686
+      }
+    }
+  },
+  {
+    "id": "char_058",
+    "name": "Bilbo Baggins",
+    "faction": "good",
+    "description": [
+      "Once considered the most respectable sort of hobbit, Bilbo has become odd ever since his great 'adventure' to Erebor. Rumored to have returned home with rivers of gold, he is now known to often wander off to meet up with dwarves and elves, and to host both in his fine home at Bag End.",
+      "In spite of his age, Bilbo retains the spryness of a Hobbit in the prime of his life. This has earned him the envy of many of his fellow Hobbits - it seems quite unfair for one to be possessing of seemingly unexhaustible youth and wealth. But Bilbo bears a secret that shall determine the fate of the Age - For he is in possession of the One Ring."
+    ],
+    "image": "/assets/characters/bilbo-baggins.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.3666,
+        "y": 0.1744
+      }
+    }
+  },
+  {
+    "id": "char_059",
+    "name": "Maglor the Minstrel",
+    "faction": "elves",
+    "description": [
+      "Or so the singers say. Yet in truth, Maglor has not wandered such for almost an Age of the world. Though he remains prone to deep bouts of melancholy and introspection, Maglor has found some measure of peace in the isolation of his brother Maehdros's old fortress. Some of his oldest Noldor followers have found their way back to him, building a simple community removed from the affairs of Men or Elves.",
+      "Yet Maglor remains the last ember of the mighty House of Feanor, and with the right incentive, could ignite a fire to light - or consume - the world."
+    ],
+    "image": "/assets/characters/maglor-the-minstrel.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.2883,
+        "y": 0.121
+      }
+    }
+  },
+  {
+    "id": "char_060",
+    "name": "Balin, Son of Fundin",
+    "faction": "dwarves",
+    "description": [
+      "Against the wishes of his king and liege-lord, Balin set out to reclaim the ancient dwarven realm of Khazad-dum.",
+      "While initially seeing great success, the expedition seems in the last several years to have become cursed. Parties go missing in the deeps of the Misty Mountains, miners' corpses turn up lacerated, and new colonists from Erebor have slowed to a trickle. And it is rumored that in the depths lurk goblins waiting for the expedition to misstep.",
+      "Seeking guidance, Balin plans to gaze into the depths of the Mirrormere in the hopes of recieving a sign of what he might do to avert this slow death of his colony."
+    ],
+    "image": "/assets/characters/balin-son-of-fundin.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.4471,
+        "y": 0.2278
+      }
+    }
+  },
+  {
+    "id": "char_061",
+    "name": "Uzbâd Dáin II 'Ironfoot'",
+    "faction": "dwarves",
+    "description": [
+      "Dáin II 'Ironfoot', son of Náin, son of Grór, is a legend in his own right. From his slaying of Azog the Defiler, to his deeds at the Battle of the Five Armies, to his long and prosperous reign as King Under the Mountain - few kings of Durins Folk can boast such a storied life.",
+      "Wise and strong in equal measure, Dáin's reign has seen the Longbeards prosper as they have not since the loss of Khazad-dum. Erebor and the Iron Hills have seen great prosperity, and the numbers of the Longbeards multiply.",
+      "Now old, though hale, Dáin has one last chapter to add to his great tale, in the final battle of this Age..."
+    ],
+    "image": "/assets/characters/dain-ironfoot.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.5286,
+        "y": 0.1516
+      }
+    }
+  },
+  {
+    "id": "char_062",
+    "name": "Uzbâd Brokkur III",
+    "faction": "dwarves",
+    "description": [
+      "The line of Dwálin has laboured now for generations to reclaim the ruins of Belegost. However, it has gone slowly, in fits and starts. Though not ruined to the level of neighbouring Nogrod, in some ways Belegost is more perilous, for its collapsed caverns and halls run the risk of collapse during every attempt to reclaim them.",
+      "But, with their stable satellite holds to the north and their friendship with the Longbeards, the Broadbeams can afford to take their time."
+    ],
+    "image": "/assets/characters/uzbad-brokkur-III.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.318,
+        "y": 0.1484
+      }
+    }
+  },
+  {
+    "id": "char_063",
+    "name": "Uzbâd Úri VI",
+    "faction": "dwarves",
+    "description": [
+      "Úri VI, the sixth incarnation of the Dwarf Father of the Firebeards, now rests in the last days of his life. As a young prince, he fought in the War of Dwarves and Orcs, leading the Firebeard warriors at the battle of Azanulbizar. Gaining a deep mutual respect for Thorin and Thrain, he helped them to build new halls in exile, and his people and theirs grew close in shared labour.",
+      "Content in the humble realm his people have wrought in the southern Eredluin, Úri spends his twilight days at the forge or the lathe, leaving the rigors of court to his eldest son.",
+      "His line secure, his people safe, Úri has no regrets."
+    ],
+    "image": "/assets/characters/uzbad-uri-VI.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.3267,
+        "y": 0.2238
+      }
+    }
+  },
+  {
+    "id": "char_063",
+    "name": "Uzbâd Úri VI",
+    "faction": "dwarves",
+    "description": [
+      "Úri VI, the sixth incarnation of the Dwarf Father of the Firebeards, now rests in the last days of his life. As a young prince, he fought in the War of Dwarves and Orcs, leading the Firebeard warriors at the battle of Azanulbizar. Gaining a deep mutual respect for Thorin and Thrain, he helped them to build new halls in exile, and his people and theirs grew close in shared labour.",
+      "Content in the humble realm his people have wrought in the southern Eredluin, Úri spends his twilight days at the forge or the lathe, leaving the rigors of court to his eldest son.",
+      "His line secure, his people safe, Úri has no regrets."
+    ],
+    "image": "/assets/characters/uzbad-uri-VI.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.3267,
+        "y": 0.2238
+      }
+    }
+  },
+  {
+    "id": "char_064",
+    "name": "Warchief Gorgol",
+    "faction": "evil",
+    "description": [
+      "The heir of Azog and Bolg, Gorgol is a proud and wrathful orc - tall, strong, and not unskilled with his jagged blade. Yet he is at heart a craven, who flinches away from the bold moves required for Gundabad to be more than an annoyance to the Free Peoples.",
+      "He barely succeeded in clinging to power during his wars with his siblings upon the death of their father. His cowardice has kept him from pushing his advantage, spending the past 60 years fortifying his own domain. Yet his long and cautious build-up has had its benefits, for he now stands as the mightiest Orc-Lord of the North."
+    ],
+    "image": "/assets/characters/warchief-gorgol.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.453,
+        "y": 0.1272
+      }
+    }
+  },
+  {
+    "id": "char_065",
+    "name": "Mazog, the Exile",
+    "faction": "evil",
+    "description": [
+      "Wrathful Mazog, youngest son of Bolg, long squabbled with his elder siblings for the mastery of Gundabad. In the end, however - Mazog lost. Cast out of Gundabad with his followers, Mazog stewed in his anger. Marching south, he came up with a new plan - his dynasty was not originally of Gundabad, but of Moria! He would reclaim it and forge anew his grandfather Azog's realm...",
+      "This has been of mixed success. His southward march brought him into conflict with Gorkil of Goblin Town, and the Goblin tribes of Moria care little for this would-be Orc-lord. But Mazog has established himself now, and rumour says he has even made a bargain with the dark power in Dol Guldur..."
+    ],
+    "image": "/assets/characters/mazog-the-exile.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.46,
+        "y": 0.1924
+      }
+    }
+  },
+  {
+    "id": "char_066",
+    "name": "Gorkil, the Goblin King",
+    "faction": "evil",
+    "description": [
+      "A Goblin King reigns once more in Goblin Town, quelling the chaos which has endured there since the Great Goblin was slain by Thorin and Company.",
+      "When the Exiles of Gundabad came from the north, demanding food and service from the disunited Goblins of Goblin Town, it seemed like there would be no resisting them. The Great Fat One was dead, and who among them could stand against an entire Big One host?",
+      "Yet it was not to be so, for one mighty Goblin rose to the challenge. Rallying the bands behind him, Gorkil repulsed Mazog of Gundabad, taking the throne of Goblin Town for his own. Pretenders inside and foes outside both remain, but the Goblin King is prepared to face any challenger to secure his place."
+    ],
+    "image": "/assets/characters/gorkil-the-goblin-king.png",
+    "metadata": {
+      "titles": []
+    },
+    "startDates": [
+      "T.A. 3000"
+    ],
+    "position": {
+      "x": 0.612,
+      "y": 0.57
+    },
+    "positions": {
+      "T.A. 3000": {
+        "x": 0.4611,
+        "y": 0.1594
       }
     }
   }
