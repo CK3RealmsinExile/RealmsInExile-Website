@@ -49,14 +49,13 @@
 
 /**
  * Character Pin - Modern Map Marker Design
- * Teardrop pin with faction color and character initial
+ * Desktop: Teardrop pin with faction color
+ * Mobile: Larger touch-friendly pins
  */
 
 .char-pin {
-  /* Positioning - absolute within map wrapper */
+  /* Positioning */
   position: absolute;
-  
-  /* Center the pin at coordinates (bottom-center of pin at position) */
   transform: translate(-50%, -100%);
   
   /* Interaction */
@@ -69,88 +68,67 @@
   transition: transform var(--pin-transition, 0.2s) ease,
               filter var(--pin-transition, 0.2s) ease;
   
-  /* Prevent text selection during drag */
+  /* Prevent text selection */
   user-select: none;
+  
+  /* Touch action for better mobile performance */
+  touch-action: manipulation;
 }
 
-/**
- * Pin Marker - Teardrop Shape
- * Using CSS for pure styling (no images needed)
- */
+/* Pin Marker - Teardrop Shape */
 .char-pin__marker {
   /* Dimensions */
   width: 32px;
   height: 40px;
   
-  /* Position for initial text */
+  /* Position */
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   
-  /* Visual - Circle top */
+  /* Visual - Teardrop */
   background-color: var(--faction-color, var(--color-gold));
   border: 3px solid rgba(0, 0, 0, 0.3);
   border-radius: 50% 50% 50% 0;
-  
-  /* Rotate to create teardrop pointing down */
   transform: rotate(-45deg);
   
-  /* Shadow for depth */
+  /* Shadow */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   
   /* Smooth transitions */
   transition: all var(--pin-transition, 0.2s) ease;
 }
 
-/**
- * Character Initial Inside Pin
- */
+/* Character Initial */
 .char-pin__initial {
-  /* Counter-rotate to keep text upright */
   transform: rotate(45deg);
-  
-  /* Typography */
   font-size: 14px;
   font-weight: 700;
   color: var(--color-white, #fff);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  
-  /* Center text */
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* Prevent selection */
   user-select: none;
   pointer-events: none;
 }
 
-/**
- * Hover State - Enlarge and Enhance
- */
+/* Hover State */
 .char-pin:hover .char-pin__marker,
 .char-pin--hovered .char-pin__marker {
-  /* Scale up */
   transform: rotate(-45deg) scale(1.2);
-  
-  /* Stronger shadow */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
               0 0 0 3px rgba(255, 255, 255, 0.3);
-  
-  /* Bring to front */
   z-index: calc(var(--z-character-pin, 1100) + 10);
 }
 
 .char-pin:hover,
 .char-pin--hovered {
-  /* Bring entire pin to front */
   z-index: calc(var(--z-character-pin, 1100) + 10);
 }
 
-/**
- * Dragging State
- */
+/* Dragging State */
 .char-pin--dragging {
   cursor: grabbing;
 }
@@ -159,6 +137,13 @@
   transform: rotate(-45deg) scale(1.3);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5),
               0 0 0 4px rgba(184, 134, 11, 0.5);
+}
+
+/* Filtered State (pulsing) */
+.char-pin--filtered .char-pin__marker {
+  animation: pulseFaction 2s ease-in-out infinite;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
+              0 0 20px var(--faction-color, var(--color-gold));
 }
 
 /**
@@ -191,6 +176,7 @@
   cursor: pointer;
 }
 
+/* Edit Mode Cursor */
 .char-pin[aria-label*="Drag"] {
   cursor: grab;
 }
@@ -199,13 +185,45 @@
   cursor: grabbing;
 }
 
-/**
- * Tooltip Positioning for New Pin Design
- */
+/* Tooltip */
 .char-pin .tooltip {
-  /* Position below the pin marker */
   margin-top: 8px;
   z-index: var(--z-character-tooltip, 1150);
+}
+
+/**
+ * Mobile: Larger Touch-Friendly Pins
+ * Minimum 44px touch target per accessibility guidelines
+ */
+@media (max-width: 1024px) {
+  .char-pin {
+    /* Add invisible touch area around pin */
+    padding: 12px;
+  }
+  
+  /* Larger pin on mobile */
+  .char-pin__marker {
+    width: 40px;
+    height: 50px;
+    border-width: 4px;
+  }
+  
+  .char-pin__initial {
+    font-size: 16px;
+  }
+  
+  /* No hover state on touch devices */
+  @media (hover: none) {
+    .char-pin:hover .char-pin__marker {
+      transform: rotate(-45deg); /* No scale on touch */
+    }
+  }
+  
+  /* Active/tap state for touch */
+  .char-pin:active .char-pin__marker {
+    transform: rotate(-45deg) scale(1.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
 }
 
 /**
@@ -213,27 +231,35 @@
  */
 @media (max-width: 600px) {
   .char-pin__marker {
-    width: 28px;
-    height: 35px;
+    width: 36px;
+    height: 45px;
   }
   
   .char-pin__initial {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
 /**
- * Touch Devices - Larger Touch Target
+ * Touch Device Optimizations
+ * Larger tap targets without hover effects
  */
 @media (hover: none) and (pointer: coarse) {
+  /* Larger invisible touch area */
   .char-pin::before {
-    /* Invisible larger touch target */
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
+    top: -16px;
+    left: -16px;
+    right: -16px;
+    bottom: -16px;
+    /* Invisible but increases tap area */
+  }
+  
+  /* Remove hover-specific styles */
+  .char-pin:hover .char-pin__marker {
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -254,7 +280,7 @@
 }
 
 /**
- * Print - Simplified Pins
+ * Print
  */
 @media print {
   .char-pin__marker {
@@ -262,8 +288,7 @@
     border: 2px solid #000;
   }
   
-  .char-pin:hover .char-pin__marker,
-  .char-pin--hovered .char-pin__marker {
+  .char-pin:hover .char-pin__marker {
     transform: rotate(-45deg);
   }
 }
@@ -322,16 +347,69 @@
 }
 
 /**
- * Reduced motion
+ * Reduced Motion
  */
 @media (prefers-reduced-motion: reduce) {
-  .map-skeleton {
-    animation: none;
-    background: rgba(60, 60, 60, 0.3);
+  .char-pin,
+  .char-pin__marker {
+    transition: none;
   }
   
-  .map-wrapper:not(.map-wrapper--loading) {
+  .char-pin--filtered .char-pin__marker {
     animation: none;
-    opacity: 1;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
+                0 0 20px var(--faction-color, var(--color-gold));
+  }
+}
+
+/**
+ * Zoom Controls (Mobile & Desktop)
+ * Fixed position controls for zooming
+ */
+.map-zoom-controls {
+  position: fixed;
+  bottom: 100px; /* Above FAB */
+  right: 24px;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  z-index: var(--z-sidebar-toggle, 1500);
+}
+
+.map-zoom-controls__button {
+  width: 44px;
+  height: 44px;
+  
+  background-color: var(--color-grey-bg, grey);
+  border: 2px solid var(--color-gold, #b8860b);
+  border-radius: 8px;
+  color: var(--color-white, #fff);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: 1.5rem;
+  cursor: pointer;
+  
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.map-zoom-controls__button:hover {
+  background-color: rgba(184, 134, 11, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.map-zoom-controls__button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .map-zoom-controls {
+    bottom: 90px;
+    right: 20px;
   }
 }
