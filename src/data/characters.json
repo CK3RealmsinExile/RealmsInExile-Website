@@ -1913,33 +1913,6 @@
     }
   },
   {
-    "id": "char_063",
-    "name": "Uzbâd Úri VI",
-    "faction": "dwarves",
-    "description": [
-      "Úri VI, the sixth incarnation of the Dwarf Father of the Firebeards, now rests in the last days of his life. As a young prince, he fought in the War of Dwarves and Orcs, leading the Firebeard warriors at the battle of Azanulbizar. Gaining a deep mutual respect for Thorin and Thrain, he helped them to build new halls in exile, and his people and theirs grew close in shared labour.",
-      "Content in the humble realm his people have wrought in the southern Eredluin, Úri spends his twilight days at the forge or the lathe, leaving the rigors of court to his eldest son.",
-      "His line secure, his people safe, Úri has no regrets."
-    ],
-    "image": "/assets/characters/uzbad-uri-VI.png",
-    "metadata": {
-      "titles": []
-    },
-    "startDates": [
-      "T.A. 3000"
-    ],
-    "position": {
-      "x": 0.612,
-      "y": 0.57
-    },
-    "positions": {
-      "T.A. 3000": {
-        "x": 0.3267,
-        "y": 0.2238
-      }
-    }
-  },
-  {
     "id": "char_064",
     "name": "Warchief Gorgol",
     "faction": "evil",
