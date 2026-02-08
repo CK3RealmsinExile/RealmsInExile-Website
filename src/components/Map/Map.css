@@ -3,33 +3,39 @@
  * Map container with character pin overlays
  */
 
-/* Map container */
+/* Map container - full viewport */
 .map-container {
-  /* Layout */
+  /* Layout - full viewport height */
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  
+  /* Positioning - fixed to handle scrolling */
+  position: fixed;
+  top: var(--timeline-height, 89px);
+  left: 0;
+  right: 0;
+  bottom: 0;
   
   /* Scrolling */
   overflow: auto;
   
-  /* Account for fixed timeline navigation */
-  padding-top: var(--timeline-height, 89px);
-  
-  /* FIX: Background color matches body */
+  /* Background */
   background-color: var(--color-black, #000);
   
-  /* FIX: Ensure container fills viewport */
-  position: relative;
+  /* Stacking */
+  z-index: var(--z-map-base, 1000);
 }
 
-/* Map wrapper - provides positioning context */
+/* Map wrapper - centers content */
 .map-wrapper {
   position: relative;
   display: inline-block;
   min-width: 100%;
-  
-  /* FIX: Remove any gaps */
+  min-height: 100%;
   line-height: 0;
+  
+  /* Center the map */
+  margin: 0 auto;
 }
 
 /* Map image */
@@ -266,18 +272,13 @@
  * Map Loading States
  */
 
-/* Skeleton placeholder while map loads */
+/* Loading skeleton */
 .map-skeleton {
-  /* Match expected map dimensions */
-  min-height: 80vh;
+  min-height: calc(100vh - var(--timeline-height, 89px));
   width: 100%;
-  
-  /* Center spinner */
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* Visual */
   background: linear-gradient(
     90deg,
     rgba(50, 50, 50, 0.2) 0%,
@@ -286,8 +287,6 @@
   );
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
-  
-  /* Border for definition */
   border: 1px solid rgba(184, 134, 11, 0.2);
   border-radius: var(--radius-md, 8px);
 }
@@ -304,7 +303,6 @@
 
 /* Map wrapper loading state */
 .map-wrapper--loading {
-  /* Hide while loading to prevent flash */
   opacity: 0;
   pointer-events: none;
 }
